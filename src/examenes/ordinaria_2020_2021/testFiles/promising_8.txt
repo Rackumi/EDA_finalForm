@@ -1,0 +1,193 @@
+Lagaan: Once Upon a Time in India, 8.1, 224
+Groundhog Day, 8.0, 101
+Bill Burr: I'm Sorry You Feel That Way, 8.4, 80
+The Flood, 8.1, 99
+Searching for Sugar Man, 8.2, 86
+Love Ni Bhavai, 8.4, 146
+The Incredibles, 8.0, 115
+Marriage Story, 8.0, 137
+Magnolia, 8.0, 188
+Sin City, 8.0, 124
+PK, 8.1, 153
+Bawarchi, 8.0, 130
+13th, 8.2, 100
+Dancing with the Birds, 8.3, 51
+Louis C.K.: Hilarious, 8.5, 82
+Free Solo, 8.2, 100
+Armed to the Teeth, 8.2, 105
+El testigo: Caín y Abel, 8.0, 76
+The Gospel of Matthew, 8.4, 190
+Blackfish, 8.1, 83
+Khosla Ka Ghosla!, 8.3, 135
+Coco, 8.4, 105
+The Perks of Being a Wallflower, 8.0, 103
+Jim Gaffigan: Beyond the Pale, 8.0, 72
+Raiders of the Lost Ark, 8.4, 115
+Roll with Me, 8.5, 90
+The Good; the Bad and the Ugly, 8.8, 161
+Rush: Beyond the Lighted Stage, 8.4, 107
+Luciano Mellera: Infantiloide, 8.6, 66
+Gol Maal, 8.6, 120
+Dil Chahta Hai, 8.1, 183
+Uppity: The Willy T. Ribbs Story, 8.0, 109
+Wrong Side Raju, 8.0, 140
+Harishchandrachi Factory, 8.4, 96
+Kahaani, 8.1, 122
+One Heart: The A.R. Rahman Concert Film, 8.7, 87
+Empire of Dreams: The Story of the Star Wars Trilogy, 8.3, 151
+We Are Moluccans, 8.2, 151
+The Long Goodbye: The Kara Tippetts Story, 8.1, 89
+Monty Python and the Holy Grail, 8.2, 91
+Pan's Labyrinth, 8.2, 118
+John Mulaney: New in Town, 8.3, 60
+Back to the Future, 8.5, 116
+Inglourious Basterds, 8.3, 153
+Chupke Chupke, 8.4, 146
+Monsters; Inc., 8.0, 92
+Andaz Apna Apna, 8.2, 160
+3 Idiots, 8.4, 170
+Struggle: The Life and Lost Art of Szukalski, 8.0, 115
+Bill Hicks: Sane Man, 8.5, 81
+Mission Blue, 8.0, 95
+Dangal, 8.4, 161
+Aladdin, 8.0, 128
+Richard Pryor: Live in Concert, 8.2, 78
+Jeff Dunham: Arguing with Myself, 8.0, 76
+Waiting for the Hearse, 8.1, 94
+Dave Chappelle: Sticks & Stones, 8.5, 65
+Before the Flood, 8.3, 96
+Attacking the Devil: Harold Evans and the Last Nazi War Crime, 8.1, 102
+Jim Jefferies: Bare, 8.1, 77
+Shiva, 8.0, 161
+The Invisible Guest, 8.1, 106
+The King's Speech, 8.0, 118
+The Square, 8.1, 151
+The Princess Bride, 8.1, 98
+Sebastian Maniscalco: What's Wrong with People?, 8.1, 75
+Bahubali: The Beginning, 8.1, 159
+Avengers: Infinity War, 8.5, 149
+Toy Story 3, 8.3, 103
+Beyond All Boundaries, 8.1, 30
+Finding Nemo, 8.1, 100
+Indiana Jones and the Last Crusade, 8.2, 127
+Skydancers, 8.2, 50
+Harold and Lillian: A Hollywood Love Story, 8.0, 94
+Los ladrones viejos: Las leyendas del artegio, 8.2, 97
+The Pianist, 8.5, 150
+Togo, 8.1, 113
+Dave Chappelle: Equanimity, 8.2, 64
+Angamaly Diaries, 8.0, 132
+Like Stars on Earth, 8.4, 165
+Virunga, 8.2, 100
+Chasing Coral, 8.1, 93
+Toy Story, 8.3, 81
+Up, 8.2, 96
+Mike Birbiglia: My Girlfriend's Boyfriend, 8.0, 76
+The Dawn Wall, 8.1, 100
+The Gospel of Mark, 8.1, 123
+Manusangada, 8.4, 93
+The Pursuit of Happyness, 8.0, 117
+Swades, 8.2, 210
+Spider-Man: Into the Spider-Verse, 8.4, 117
+The Battered Bastards of Baseball, 8.0, 80
+Phineas and Ferb: Mission Marvel, 8.3, 45
+Rainbow, 8.0, 106
+The Avengers, 8.0, 143
+Bo Burnham: What., 8.5, 60
+Shuddhi, 8.0, 114
+Zindagi Na Milegi Dobara, 8.1, 155
+The Nightmare Before Christmas, 8.0, 76
+Ratatouille, 8.0, 111
+Her, 8.0, 126
+Inequality for All, 8.0, 89
+Sudani from Nigeria, 8.2, 123
+Paan Singh Tomar, 8.2, 135
+Gardeners of Eden, 8.4, 72
+Taxi Driver, 8.3, 114
+Barfi!, 8.1, 151
+Springsteen On Broadway, 8.5, 153
+Hikaru Utada Laughter in the Dark Tour 2018, 8.6, 141
+Baahubali 2: The Conclusion, 8.2, 167
+Bill Burr: Paper Tiger, 8.2, 67
+Zootopia, 8.0, 108
+Hasan Minhaj: Homecoming King, 8.3, 73
+Nazi Concentration Camps, 8.3, 59
+I Am Kalam, 8.0, 88
+Bill Burr: Let It Go, 8.4, 65
+Guardians of the Galaxy, 8.0, 121
+Life of Brian, 8.1, 94
+Room, 8.1, 118
+A Plastic Ocean, 8.0, 102
+Bill Hicks: Revelations, 8.6, 57
+G.O.R.A., 8.0, 127
+Django Unchained, 8.4, 165
+Star Wars: Return of the Jedi, 8.3, 131
+Kal Ho Naa Ho, 8.0, 186
+Dev.D, 8.0, 144
+Neon Genesis Evangelion: The End of Evangelion, 8.1, 87
+Pirates of the Caribbean: The Curse of the Black Pearl, 8.0, 143
+Vizontele, 8.0, 110
+Avengers: Endgame, 8.4, 181
+Sillu Karupatti, 8.3, 153
+Thithi, 8.2, 123
+Prowlers of the Everglades, 8.0, 32
+Cowspiracy: The Sustainability Secret, 8.3, 90
+Article 15, 8.3, 130
+Bill Burr: You People Are All The Same, 8.3, 69
+River; el Más Grande Siempre, 8.1, 100
+A Wednesday!, 8.1, 104
+Muramba, 8.1, 128
+Expedition Mars, 8.0, 88
+Rang De Basanti, 8.2, 167
+Elles étaient en guerre (1914 - 1918), 8.0, 95
+Udaan, 8.2, 134
+Sairat, 8.3, 174
+The Lion King, 8.5, 118
+Winter on Fire: Ukraine's Fight for Freedom, 8.4, 102
+Taylor Swift: Reputation Stadium Tour, 8.3, 125
+Bobby Robson: More Than a Manager, 8.2, 104
+LA 92, 8.2, 114
+Beary Tales, 8.1, 51
+Pink, 8.1, 136
+Star Wars: The Empire Strikes Back, 8.7, 124
+Tim Minchin: So F**king Rock Live, 8.1, 127
+Inception, 8.8, 148
+Monty Python: Parrot Sketch Not Included, 8.2, 72
+The Straight Story, 8.0, 112
+There Will Be Blood, 8.2, 158
+Haider, 8.1, 160
+Shonar Pahar, 8.1, 140
+A Secret Love, 8.1, 81
+Tikli and Laxmi Bomb, 8.2, 151
+Dallas Buyers Club, 8.0, 117
+The Trailer Park Boys Xmas Special, 8.0, 57
+Eh Janam Tumhare Lekhe, 8.7, 135
+Star Wars: A New Hope, 8.6, 121
+Cuba and the Cameraman, 8.2, 113
+Life in the Doghouse, 8.4, 84
+Our Planet: Behind The Scenes, 8.3, 63
+Newsies: The Broadway Musical, 8.5, 149
+Untamed Romania, 8.7, 92
+Once Upon a Time in the West, 8.5, 165
+Uyare, 8.1, 125
+Ip Man, 8.0, 106
+Story of an Egg, 8.0, 124
+Merku Thodarchi Malai, 8.6, 122
+Senna, 8.5, 106
+The Matrix, 8.7, 136
+Bill Hicks: Relentless, 8.7, 61
+Kitbull, 8.0, 9
+Hannah Gadsby: Nanette, 8.2, 69
+Punjab 1984, 8.5, 159
+My Little Pony: Best Gift Ever, 8.0, 44
+Mickey's Christmas Carol, 8.0, 26
+Birth Reborn, 8.0, 91
+The Sound of Music, 8.0, 172
+Phineas and Ferb: Star Wars, 8.2, 51
+Kaakan, 8.3, 140
+Klaus, 8.2, 96
+Eddie Murphy: Delirious, 8.2, 69
+Bo Burnham: Make Happy, 8.4, 60
+A Silent Voice, 8.2, 130
+Song of the Sea, 8.1, 93
+WALL·E, 8.4, 98

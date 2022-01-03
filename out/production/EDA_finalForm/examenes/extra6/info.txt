@@ -1,0 +1,5 @@
+ej1.1 arbol B
+ej1.2 diccionarios
+ej2.a arbol nary -
+ej2.b arbol nary -
+ej3 grafos

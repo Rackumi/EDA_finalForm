@@ -1,0 +1,6 @@
+EJERCICIO 1: 1,4 / 2 - No se debe modificar una estructura de datos mientras se recorre con un iterador. - No consideras que la raíz podría ser hoja. - (No resta) No se lanza una excepción a menos que sea inevitable. 
+
+EJERCICIO 2: 0 / 2.5 - Si no hay nodos que cumplan la condición se devuelve un iterable vacío. No se devuelve null sin más. - Falla porque llamas a tree.parent() sin comprobar si tiene padre correctamente - Complejidad O(n^2). 
+	Calcula la altura en O(n) para cada nodo. 
+
+EJERCICIO 3: 0 / 3.5 a) 0 / 0.5 b) 0 / 0.5 c) 0 / 1 d) 0 / 1 e) 0 / 0.5

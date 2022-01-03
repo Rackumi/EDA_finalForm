@@ -1,0 +1,98 @@
+
+
+
+
+
+//a) Usaremos una estructura de tipo diccionario para guardar las multas que vayan llegando,
+//usando como clave la matrícula del vehiculo. El uso de un diccionario para esto quedará
+//justificado, dado que, pueden existir más de una multa con el mismo número de matrícula.
+//
+//Cuando nos toque buscar las multas de una matricula lo tendremos muy fácil,
+//sólo habrá que llamar a findAll para hacer esto.
+//
+//En cuanto a los radares y su contador de multas, es necesario guardarlo en otra estructura
+//de datos. Al ser únicamente un entero que se va actualizando, podemos usar una Hash
+//donde la clave sea el ID de radar y el valor sea el contador que ira siendo modificado usando get y put.
+
+
+
+//b)
+
+//class CentroControl {
+//	BSTOrderedDict <String,Multa> dict = new BSTOrderedDict <String,Multa>();
+//
+//	//HashTableMap<String, ArrayList<Multa>> multas = new HashTableMap<String, ArrayList<Multa>>();
+//	HashTableMap<Integer, Integer> estadis = new HashTableMap<Integer, Integer>();
+//	....
+//
+//
+//
+//}
+//
+//c)
+//
+//public void setMulta (Multa m) {
+//
+//	dict.insert(m.getMatricula(), m);
+///*
+//	ArrayList<Multa> valor = multas.get (m.getMatricula());
+//	if (valor==null) {
+//		valor = new ArrayList<Multa>();
+//		valor.add (m);
+//		multas.put (m.getMatricula(), valor);
+//	}else {
+//		valor.add (m);
+//	}
+//*/
+//
+//	Integer num_multas = estadis.get (m.getIdRadar());
+//	if (num_multas!=null) {
+//		num_multas = num_multas +1;
+//		estadis.put (m.getIdRadar(), num_multas);
+//	}else {
+//		estadis.put (m.getIdRadar(), 1);
+//	}
+//}
+//
+//public float getCuantia (String Matricula) {
+//	Iterable<Entry <String,Multa>> it = dict.findAll(Matricula);
+//
+//	float cont = 0.0;
+//	Iterator i = it.iterator ();
+//	while (i.hasNext ()) {
+//		Entry <String,Multa> entry = i.next ();
+//		Multa m = entry.getValue();
+//		cont = cont + m.getImporte ();
+//	}
+//
+//	ArrayList<Multa> valor = multas.get (m.getMatricula());
+//	Iterator<Multa> it = valor.iterator();
+//	while (it.hasNext()) {
+//		Multa m = it.next();
+//		cont = cont + m.getImporte();
+//	}
+//
+//
+//	return cont;
+//}
+//
+//public int getRadarMasValioso (String Matricula) {
+//	Iterable<Entry<Integer, Integer>> elementos = estadis.entrySet();
+//
+//	Entry <Integer,Integer> mayor = null;
+//
+//	Iterator i = elementos.iterator ();
+//	while (i.hasNext ()) {
+//		Entry <Integer,Integer> entry = i.next ();
+//		if (mayor==null) {
+//			mayor = entry;
+//		}else {
+//			Integer m = entry.getValue();
+//			if (m>mayor.getValue()) {
+//				mayor = entry;
+//			}
+//		}
+//	}
+//	return mayor.getKey ();
+//
+//}
