@@ -1,18 +1,19 @@
-package test.graphs;
+package test.graphs.graph;
+
+import junit.framework.TestCase;
+import structures.graphs.Edge;
+import structures.graphs.Vertex;
+import structures.graphs.graph.ALGraph;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import junit.framework.TestCase;
-import structures.graphs.graph.ELGraph;
-import structures.graphs.Edge;
-import structures.graphs.Vertex;
 
 /**
  *
  * @author Rackumi
  */
-public class ELGraphTest extends TestCase {
+public class ALGraphTest extends TestCase {
 
     @Override
     public void setUp() {
@@ -23,11 +24,11 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of vertices method, of class ELGraph.
+     * Test of vertices method, of class ALGraph.
      */
     public void testVertices() {
         System.out.println("vertices");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         graph.insertVertex("Madrid");
         graph.insertVertex("Sevilla");
@@ -45,11 +46,11 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of edges method, of class ELGraph.
+     * Test of edges method, of class ALGraph.
      */
     public void testEdges() {
         System.out.println("edges");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -77,11 +78,11 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of opposite method, of class ELGraph.
+     * Test of opposite method, of class ALGraph.
      */
     public void testOpposite() {
         System.out.println("opposite");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -109,11 +110,11 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of insert method, of class ELGraph.
+     * Test of insert method, of class ALGraph.
      */
     public void testInsertDuplicateEdge() {
         System.out.println("insert");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -126,11 +127,11 @@ public class ELGraphTest extends TestCase {
     }
     
     /**
-     * Test of incident method, of class ELGraph.
+     * Test of incident method, of class ALGraph.
      */
     public void testIncidentEdges() {
         System.out.println("incidentEdges");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -152,11 +153,11 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of endVertices method, of class ELGraph.
+     * Test of endVertices method, of class ALGraph.
      */
     public void testEndVertices() {
         System.out.println("opposite");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -186,12 +187,12 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of areAdjacent method, of class ELGraph.
+     * Test of areAdjacent method, of class ALGraph.
      */
     
     public void testAreAdjacent() {
         System.out.println("areAdjacent");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -206,12 +207,12 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of replace method, of class ELGraph.
+     * Test of replace method, of class ALGraph.
      */
     
     public void testReplace_Vertex_GenericType() {
         System.out.println("replace");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -228,12 +229,12 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of replace method, of class ELGraph.
+     * Test of replace method, of class ALGraph.
      */
     
     public void testReplace_Edge_GenericType() {
         System.out.println("replace");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -250,12 +251,12 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of removeVertex method, of class ELGraph.
+     * Test of removeVertex method, of class ALGraph.
      */
     
     public void testRemoveVertex() {
         System.out.println("removeVertex");
-        ELGraph <String,Integer> graph = new ELGraph <> ();
+        ALGraph <String,Integer> graph = new ALGraph <> ();
         
         Vertex <String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");
@@ -272,12 +273,12 @@ public class ELGraphTest extends TestCase {
     }
 
     /**
-     * Test of removeEdge method, of class ELGraph.
+     * Test of removeEdge method, of class ALGraph.
      */
     
     public void testRemoveEdge() {
         System.out.println("removeEdge");
-        ELGraph<String,Integer> graph = new ELGraph <> ();
+        ALGraph<String,Integer> graph = new ALGraph <> ();
         
         Vertex<String> v1 = graph.insertVertex("Madrid");
         Vertex <String> v2 = graph.insertVertex("Sevilla");

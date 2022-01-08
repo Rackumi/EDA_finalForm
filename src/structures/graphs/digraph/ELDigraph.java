@@ -2,11 +2,10 @@ package structures.graphs.digraph;
 
 import structures.graphs.Edge;
 import structures.graphs.Vertex;
-
 import java.util.*;
 
 /**
- * Graph implemented as a edge list
+ * Digraph implemented as a edge list
  *
  * @author Rackumi
  */

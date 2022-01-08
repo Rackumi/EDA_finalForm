@@ -1,4 +1,4 @@
-package test.graphs;
+package test.graphs.graphAlgorithms;
 
 import java.util.List;
 import org.junit.After;
@@ -6,20 +6,19 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import structures.graphs.graphAlgorithms.Recorridos;
-import structures.graphs.graph.ELGraph;
 import structures.graphs.Edge;
 import structures.graphs.Vertex;
+import structures.graphs.graph.ELGraph;
+import structures.graphs.graphAlgorithms.BreadthSearch;
 
 import static org.junit.Assert.*;
 
 /**
- *
  * @author Rackumi
  */
-public class RecorridosTest {
+public class BreadthSearchTest {
 
-    public RecorridosTest() {
+    public BreadthSearchTest() {
     }
 
     @BeforeClass
@@ -39,7 +38,7 @@ public class RecorridosTest {
     }
 
     /**
-     * Test of getPath method, of class Recorridos.
+     * Test of getPath method, of class BreadthSearch.
      */
     @Test
     public void testGetPath() {
@@ -101,7 +100,7 @@ public class RecorridosTest {
 
         Edge<String> OP = g.insertEdge(vO, vP, "OP");
 
-        Recorridos<String, String> algorithm = new Recorridos<>();
+        BreadthSearch<String, String> algorithm = new BreadthSearch<>();
         List <Edge<String>> path = algorithm.getPath(g, vA, vP);
         
         String stringPath = "";

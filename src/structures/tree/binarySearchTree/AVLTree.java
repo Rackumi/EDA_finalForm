@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import structures.Position;
-import structures.tree.binarySearchTree.LinkedBinarySearchTree.ReestructurableBinaryTree;
+import structures.tree.binarySearchTree.ReestructurableBinaryTree;
 
 /**
  * AVLTree class - implements an AVL Tree by extending a binary search tree.
@@ -89,8 +89,7 @@ public class AVLTree<E> implements BinarySearchTree<E> {
     }
 
     private final LinkedBinarySearchTree<AVLInfo<E>> bst = new LinkedBinarySearchTree<>();
-    private final Reestructurator reestructurator = new Reestructurator();
-    private ReestructurableBinaryTree resBT;
+    private final ReestructurableBinaryTree<AVLInfo<E>> resBT = new ReestructurableBinaryTree<>();
 
 //    public AVLTree() {
 //        this(new DefaultComparator<>());
@@ -163,7 +162,7 @@ public class AVLTree<E> implements BinarySearchTree<E> {
         }
         bst.size--;
         if (parent != null) {
-            rebalance(parent);
+//            rebalance(parent);
         }
     }
 
@@ -187,7 +186,7 @@ public class AVLTree<E> implements BinarySearchTree<E> {
         }
         bst.size--;
         if (parent != null) {
-            rebalance(parent);
+//            rebalance(parent);
         }
         return (int)aux.getElement();
     }

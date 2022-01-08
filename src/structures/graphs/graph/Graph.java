@@ -27,7 +27,7 @@ public interface Graph <V,E> {
     Collection <? extends Edge <E> > incidentEdges(Vertex <V> v);
     
     /**
-     * @return the end vertex of the edge e distinct of e.
+     * @return the end vertex of the edge e distinct of v.
      */
     Vertex <V> opposite(Vertex <V> v, Edge <E> e);
 

@@ -1,7 +1,5 @@
 package structures.linear.list.genericList;
 
-import java.util.Arrays;
-
 /**
  * Implementation for GenericArrayList
  *

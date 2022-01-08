@@ -5,16 +5,17 @@ import structures.graphs.Vertex;
 import java.util.*;
 
 /**
- * Graph implemented as a edge list
+ * Graph implemented as a adyacency matrix
  *
  * @author Rackumi
  */
-public class ELGraph <V,E> implements Graph<V,E> {
+public class AMGraph<V,E> implements Graph<V,E>{
 
-    private class ELVertex<V> implements Vertex<V>{
+    private class AMVertex<V> implements Vertex<V> {
 
         private V value;
         private final Graph graph;
+        private int num;
 
         @Override
         public V getElement() {
@@ -25,7 +26,7 @@ public class ELGraph <V,E> implements Graph<V,E> {
             this.value = value;
         }
 
-        public ELVertex(V value, Graph graph) {
+        public AMVertex(V value, Graph graph) {
             this.value = value;
             this.graph = graph;
         }
@@ -34,16 +35,24 @@ public class ELGraph <V,E> implements Graph<V,E> {
             return graph;
         }
 
+        public int getNum() {
+            return num;
+        }
+
+        public void setNum(int num) {
+            this.num = num;
+        }
+
     }
 
-    public class ELEdge<E> implements Edge<E>{
+    public class AMEdge<E> implements Edge<E> {
 
         private final Vertex<V> start;
         private final Vertex<V> end;
         private E value;
         private final Graph graph;
 
-        public ELEdge(E value,Vertex<V> startVertex, Vertex<V> endVertex, Graph graph) {
+        public AMEdge(E value,Vertex<V> startVertex, Vertex<V> endVertex, Graph graph) {
             this.value = value;
             this.start = startVertex;
             this.end = endVertex;
@@ -92,7 +101,7 @@ public class ELGraph <V,E> implements Graph<V,E> {
             if (getClass() != obj.getClass()) {
                 return false;
             }
-            final ELEdge<E> other = (ELEdge<E>) obj;
+            final AMEdge<E> other = (AMEdge<E>) obj;
             if (!Objects.equals(this.graph, other.graph)) {
                 return false;
             }
@@ -114,38 +123,36 @@ public class ELGraph <V,E> implements Graph<V,E> {
 
     }
 
-    private final Set<ELEdge<E>> edgeList = new HashSet<>();
-    private final Set<ELVertex<V>> vertexList = new HashSet<>();
+    private final Set<AMEdge<E>> edgeList = new HashSet<>();
+    private final Set<AMVertex<V>> vertexList = new HashSet<>();
+    private final Edge<E>[][] adjacencyMatrix = (Edge<E>[][]) new Object[100][100];
 
     @Override
     public Collection<? extends Vertex<V>> vertices() { //O(1)
-//        return vertexList;
         return Collections.unmodifiableCollection(vertexList);
     }
 
     @Override
     public Collection<? extends Edge<E>> edges() { //O(1)
-//        return edgeList;
         return Collections.unmodifiableCollection(edgeList);
     }
 
     @Override
-    public Collection<? extends Edge<E>> incidentEdges(Vertex<V> v) { //O(m) siendo m el num de aristas
-        Set<ELEdge<E>> incident = new HashSet<>();
-        for(ELEdge<E> e: edgeList){
-            if(e.getStart() == v){
-                incident.add(e);
-            }
-            if(e.getEnd() == v){
-                incident.add(e);
+    public Collection<? extends Edge<E>> incidentEdges(Vertex<V> v) { //O(n)
+        AMVertex<V> amVertex = checkVertex(v);
+        List<Edge<E>> l = new LinkedList<>();
+
+        for(Edge<E> p: adjacencyMatrix[amVertex.getNum()]){
+            if(p != null){
+                l.add(p);
             }
         }
-        return incident;
+        return l;
     }
 
     @Override
     public Vertex<V> opposite(Vertex<V> v, Edge<E> e) { //O(1)
-        ELEdge<E> edge = checkEdge(e);
+        AMEdge<E> edge = checkEdge(e);
         if(edge.getStart() == v){
             return edge.getEnd();
         }
@@ -157,7 +164,7 @@ public class ELGraph <V,E> implements Graph<V,E> {
 
     @Override
     public List<Vertex<V>> endVertices(Edge<E> edge) { //O(1)
-        ELEdge<E> eledge = checkEdge(edge);
+        AMEdge<E> eledge = checkEdge(edge);
         List<Vertex<V>> l = new LinkedList<>();
         l.add(eledge.getStart());
         l.add(eledge.getEnd());
@@ -165,8 +172,8 @@ public class ELGraph <V,E> implements Graph<V,E> {
     }
 
     @Override
-    public Edge<E> areAdjacent(Vertex<V> v1, Vertex<V> v2) { //O(m) siendo m el num de aristas
-        for(ELEdge<E> e: edgeList){
+    public Edge<E> areAdjacent(Vertex<V> v1, Vertex<V> v2) { //O(1)
+        for(AMEdge<E> e: edgeList){
             if((e.getStart() == v1 && e.getEnd() == v2) || (e.getEnd() == v1 && e.getStart() == v2)){
                 return e;
             }
@@ -176,7 +183,7 @@ public class ELGraph <V,E> implements Graph<V,E> {
 
     @Override
     public V replace(Vertex<V> vertex, V vertexValue) { //O(1)
-        ELVertex<V> elVertex = checkVertex(vertex);
+        AMVertex<V> elVertex = checkVertex(vertex);
         V val = elVertex.getElement();
         elVertex.setValue(vertexValue);
         return val;
@@ -184,21 +191,21 @@ public class ELGraph <V,E> implements Graph<V,E> {
 
     @Override
     public E replace(Edge<E> edge, E edgeValue) { //O(1)
-        ELEdge<E> elEdge = checkEdge(edge);
+        AMEdge<E> elEdge = checkEdge(edge);
         E val = elEdge.getElement();
         elEdge.setValue(edgeValue);
         return val;
     }
 
     @Override
-    public Vertex<V> insertVertex(V value) { //O(1)
-        ELVertex<V> node = new ELVertex<>(value, this);
+    public Vertex<V> insertVertex(V value) { //O()
+        AMVertex<V> node = new AMVertex<>(value, this);
         vertexList.add(node);
         return node;
     }
 
     @Override
-    public Edge<E> insertEdge(Vertex<V> v1, Vertex<V> v2, E edgeValue) { //O(1)
+    public Edge<E> insertEdge(Vertex<V> v1, Vertex<V> v2, E edgeValue) { //O()
         if (!vertexList.contains(v1)) {
             throw new RuntimeException("The vertex v1 doesn't belong to this graph");
         }
@@ -206,7 +213,7 @@ public class ELGraph <V,E> implements Graph<V,E> {
             throw new RuntimeException("The vertex v2 doesn't belong to this graph");
         }
 
-        ELEdge<E> node = new ELEdge<>(edgeValue, checkVertex(v1), checkVertex(v2), this);
+        AMEdge<E> node = new AMEdge<>(edgeValue, checkVertex(v1), checkVertex(v2), this);
         if(edgeList.contains(node)){
             edgeList.remove(node);
         }
@@ -215,20 +222,20 @@ public class ELGraph <V,E> implements Graph<V,E> {
     }
 
     @Override
-    public V removeVertex(Vertex<V> vertex) { //O(m) siendo m el num de aristas
-        ELVertex<V> elVertex = checkVertex(vertex);
+    public V removeVertex(Vertex<V> vertex) { //O()
+        AMVertex<V> elVertex = checkVertex(vertex);
         V val = elVertex.getElement();
 
         vertexList.remove(elVertex);
 
-        List<ELEdge<E>> l = new LinkedList<>();
-        for(ELEdge<E> e: edgeList){
+        List<AMEdge<E>> l = new LinkedList<>();
+        for(AMEdge<E> e: edgeList){
             if(e.getStart() == elVertex || e.getEnd() == elVertex){
                 l.add(e);
             }
         }
 
-        for(ELEdge<E> elem: l){
+        for(AMEdge<E> elem: l){
             edgeList.remove(elem);
         }
 
@@ -236,16 +243,16 @@ public class ELGraph <V,E> implements Graph<V,E> {
     }
 
     @Override
-    public E removeEdge(Edge<E> edge) { //O(1)
-        ELEdge<E> elEdge = checkEdge(edge);
+    public E removeEdge(Edge<E> edge) { //O()
+        AMEdge<E> elEdge = checkEdge(edge);
         E val = elEdge.getElement();
         edgeList.remove(elEdge);
         return val;
     }
 
-    private ELEdge<E> checkEdge(Edge<E> edge) {
-        if (edge instanceof ELEdge){
-            ELEdge<E> e = (ELEdge<E>)edge;
+    private AMEdge<E> checkEdge(Edge<E> edge) {
+        if (edge instanceof AMEdge){
+            AMEdge<E> e = (AMEdge<E>)edge;
             if (e.getGraph() == this) {
                 return e;
             }
@@ -253,9 +260,9 @@ public class ELGraph <V,E> implements Graph<V,E> {
         throw new RuntimeException("The edge is not in the graph");
     }
 
-    private ELVertex<V> checkVertex(Vertex<V> vertex) {
-        if (vertex instanceof ELVertex){
-            ELVertex<V> v = (ELVertex<V>)vertex;
+    private AMVertex<V> checkVertex(Vertex<V> vertex) {
+        if (vertex instanceof AMVertex){
+            AMVertex<V> v = (AMVertex<V>)vertex;
             if (v.getGraph() == this) {
                 return v;
             }
