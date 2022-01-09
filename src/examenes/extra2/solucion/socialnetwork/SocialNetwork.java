@@ -3,9 +3,9 @@ package examenes.extra2.solucion.socialnetwork;
 import structures.graphs.graph.ELGraph;
 import structures.graphs.graph.Graph;
 import structures.graphs.Vertex;
+import structures.graphs.graphAlgorithms.Recorridos;
 
 import java.util.*;
-import structures.graphs.graphAlgorithms.BreadthSearch;
 
 /**
  * Stores a social network and analyses the relevance of
@@ -85,7 +85,7 @@ public class SocialNetwork {
         }
         
         int cont=0;
-        BreadthSearch<String, Integer> utilidades = new BreadthSearch<>();
+        Recorridos<String, Integer> utilidades = new Recorridos<>();
         while (!nodos.isEmpty()) {
             Vertex<String> nodo = nodos.remove(0);
             for (Vertex<String> aux: utilidades.traverse(redSocial, nodo)) {

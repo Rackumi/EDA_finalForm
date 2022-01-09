@@ -14,7 +14,6 @@ import structures.graphs.Vertex;
 import static org.junit.Assert.*;
 
 /**
- *
  * @author Rackumi
  */
 public class RecorridosTest {
@@ -36,6 +35,90 @@ public class RecorridosTest {
 
     @After
     public void tearDown() {
+    }
+
+    /**
+     * Test of getPath method, of class Recorridos.
+     */
+    @Test
+    public void testDepthTravel() {
+        System.out.println("depthTravelTest");
+        ELGraph<String, String> g = new ELGraph<>();
+
+        Vertex<String> vA = g.insertVertex("A");
+        Vertex<String> vB = g.insertVertex("B");
+        Vertex<String> vC = g.insertVertex("C");
+        Vertex<String> vD = g.insertVertex("D");
+        Vertex<String> vE = g.insertVertex("E");
+        Vertex<String> vF = g.insertVertex("F");
+
+        Edge<String> AB = g.insertEdge(vA, vB, "AB");
+        Edge<String> BD = g.insertEdge(vB, vD, "BD");
+        Edge<String> DC = g.insertEdge(vD, vC, "DC");
+        Edge<String> DF = g.insertEdge(vD, vF, "DF");
+        Edge<String> FE = g.insertEdge(vF, vE, "FE");
+
+        Recorridos<String, String> algorithm = new Recorridos<>();
+        List <Vertex<String>> depth = algorithm.depthTravel(g, vA);
+
+        String stringPath = "";
+        for (Vertex<String> e : depth) {
+            if (!stringPath.equals(""))
+                stringPath += ",";
+            stringPath += e.getElement();
+        }
+        System.out.println(stringPath);
+
+        String expectedPath1 = "A,B,D,C,F,E";
+        String expectedPath2 = "A,B,D,F,E,C";
+
+        final boolean list1Match = stringPath.equals(expectedPath1);
+        final boolean list2Match = stringPath.equals(expectedPath2);
+
+        assertTrue(list1Match || list2Match);
+    }
+
+    /**
+     * Test of getPath method, of class Recorridos.
+     */
+    @Test
+    public void testWidthTravel() {
+        System.out.println("widthTravelTest");
+        ELGraph<String, String> g = new ELGraph<>();
+
+        Vertex<String> vA = g.insertVertex("A");
+        Vertex<String> vB = g.insertVertex("B");
+        Vertex<String> vC = g.insertVertex("C");
+        Vertex<String> vD = g.insertVertex("D");
+        Vertex<String> vE = g.insertVertex("E");
+        Vertex<String> vF = g.insertVertex("F");
+        Vertex<String> vG = g.insertVertex("G");
+
+        Edge<String> AB = g.insertEdge(vA, vB, "AB");
+        Edge<String> BD = g.insertEdge(vB, vD, "BD");
+        Edge<String> DC = g.insertEdge(vD, vC, "DC");
+        Edge<String> DF = g.insertEdge(vD, vF, "DF");
+        Edge<String> FE = g.insertEdge(vF, vE, "FE");
+        Edge<String> CG = g.insertEdge(vC, vG, "CG");
+
+        Recorridos<String, String> algorithm = new Recorridos<>();
+        List<Vertex<String>> depth = algorithm.widthTravel(g, vA);
+
+        String stringPath = "";
+        for (Vertex<String> e : depth) {
+            if (!stringPath.equals(""))
+                stringPath += ",";
+            stringPath += e.getElement();
+        }
+        System.out.println(stringPath);
+
+        String expectedPath1 = "A,B,D,C,F,G,E";
+        String expectedPath2 = "A,B,D,F,C,E,G";
+
+        final boolean list1Match = stringPath.equals(expectedPath1);
+        final boolean list2Match = stringPath.equals(expectedPath2);
+
+        assertTrue(list1Match || list2Match);
     }
 
     /**
@@ -110,6 +193,7 @@ public class RecorridosTest {
                 stringPath += ",";
             stringPath += e.getElement();
         }
+        System.out.println(stringPath);
         
         String expectedPath1 = "AE,EI,IN,KN,KO,OP";
         String expectedPath2 = "AF,FI,IN,KN,KO,OP";

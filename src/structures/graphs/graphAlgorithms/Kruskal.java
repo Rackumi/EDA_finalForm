@@ -12,11 +12,24 @@ import java.util.Set;
 
 /**
  * Los grafos utilizados por kruscal deben tener valores double en sus aristas
+ * El algoritmo de Kruskal tiene complejidad O(m log(m)), donde m es el número de aristas.
  *
  * @author Rackumi
  */
 public class Kruskal <K> {
-	
+
+//	function Kruskal(graph)
+//	Initialice a priority queue Q with all edges using weights as keys
+//	foreach v : graph.vertices()
+//			conjuntos.createconjunto(v)
+//	tree = ∅
+//			while tree.size() < (graph.vertices().size() - 1)
+//			(u,v) = Q.removeMin()
+//			if conjuntos.getconjunto(u) ≠ conjuntos.getconjunto(v)
+//			tree.add(u, v)
+//			conjuntos.joinconjuntos(u, v)
+//			return tree
+
 	private PriorityQueue<Edge<Double>> q;
 	private List<Edge<Double>> mst;
 	private List<Set<Vertex<K>>> sets;

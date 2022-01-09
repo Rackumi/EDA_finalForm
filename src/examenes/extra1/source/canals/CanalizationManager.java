@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import structures.graphs.graphAlgorithms.BreadthSearch;
 import structures.graphs.graph.ELGraph;
 import structures.graphs.Edge;
 import structures.graphs.Vertex;
+import structures.graphs.graphAlgorithms.Recorridos;
 
 /**
  *
@@ -105,7 +105,7 @@ public class CanalizationManager {
      * @return Return the number of jumps between house h and central c
      */
     public int findHops(House h, Central c) {
-    	BreadthSearch<CanalizationElement,Integer> recorridos = new BreadthSearch<CanalizationElement,Integer>();
+    	Recorridos<CanalizationElement,Integer> recorridos = new Recorridos<CanalizationElement,Integer>();
     	Vertex<CanalizationElement> origen=null;
         for (Vertex<CanalizationElement> vertice: red.vertices()) {
         	if (vertice.getElement()==h) {
