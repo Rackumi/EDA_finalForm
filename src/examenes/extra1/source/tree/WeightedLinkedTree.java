@@ -13,7 +13,13 @@ import structures.tree.iterators.BFSIterator;
 public class WeightedLinkedTree<E> implements Tree<E> {
 
     public int getWeight(Position<E> parent, Position<E> child) {
-        throw new RuntimeException("Implementa este método");
+        int cont = 0;
+        while(child != parent && !isRoot(child)){
+            TreeNode<E> node = checkPosition(child);
+            cont += node.getValue();
+            child = parent(child);
+        }
+        return cont;
     }
 
     private class TreeNode<T> implements Position<T> {
@@ -22,15 +28,17 @@ public class WeightedLinkedTree<E> implements Tree<E> {
         private TreeNode<T> parent;
         private List<TreeNode<T>> children;
         private WeightedLinkedTree<T> myTree;
+        private int value;
 
         /**
          * Main constructor
          */
-        public TreeNode(WeightedLinkedTree<T> t, T e, TreeNode<T> p, List<TreeNode<T>> c) {
+        public TreeNode(WeightedLinkedTree<T> t, T e, TreeNode<T> p, List<TreeNode<T>> c, int value) {
             this.myTree = t;
             this.element = e;
             this.parent = p;
             this.children = c;
+            this.value = value;
         }
 
         /**
@@ -88,6 +96,10 @@ public class WeightedLinkedTree<E> implements Tree<E> {
          */
         public void setMyTree(WeightedLinkedTree<T> myTree) {
             this.myTree = myTree;
+        }
+
+        public int getValue() {
+            return value;
         }
     }
     
@@ -220,7 +232,7 @@ public class WeightedLinkedTree<E> implements Tree<E> {
             throw new RuntimeException("Tree already has a root");
         }
         size = 1;
-        root = new TreeNode<>(this, e, null, new ArrayList<>());
+        root = new TreeNode<>(this, e, null, new ArrayList<>(), 0);
         return root;
     }
 
@@ -258,7 +270,7 @@ public class WeightedLinkedTree<E> implements Tree<E> {
      */
     public Position<E> add(E element, Position<E> p, final int weight) {
         TreeNode<E> parent = checkPosition(p);
-        TreeNode<E> newNode = new TreeNode<>(this, element, parent, new ArrayList<>());
+        TreeNode<E> newNode = new TreeNode<>(this, element, parent, new ArrayList<>(), weight);
         List<WeightedLinkedTree<E>.TreeNode<E>> l = parent.getChildren();
         l.add(newNode);
         size++;

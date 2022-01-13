@@ -46,6 +46,7 @@ public class Recorridos<V, E> {
      * @param source
      * @return 
      */
+    //TODO creo que esta regular
     public List<Vertex<V>> depthTravel(Graph<V,E> graph, Vertex<V> source){ //profundidad
         Deque<Vertex<V>> s = new LinkedList<>();
         Set<Vertex<V>> conj = new HashSet<>();

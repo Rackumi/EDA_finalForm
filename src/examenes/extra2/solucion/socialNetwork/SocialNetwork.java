@@ -1,4 +1,4 @@
-package examenes.extra2.solucion.socialnetwork;
+package examenes.extra2.solucion.socialNetwork;
 
 import structures.graphs.graph.ELGraph;
 import structures.graphs.graph.Graph;

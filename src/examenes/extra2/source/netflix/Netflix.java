@@ -1,68 +1,58 @@
 package examenes.extra2.source.netflix;
 
-import structures.notOrderedMapsAndDictionaries.maps.HashTableMapDH;
-import structures.notOrderedMapsAndDictionaries.maps.Map;
+import structures.notOrderedMapsAndDictionaries.Entry;
+import structures.notOrderedMapsAndDictionaries.dictionaries1.Dictionary;
+import structures.notOrderedMapsAndDictionaries.dictionaries1.HashTableDictionarySC;
 
 import java.util.*;
 
 public class Netflix {
 
-	Map<String, LinkedList<Movie>> mapTitulos = new HashTableMapDH<>();
-	Map<Integer, LinkedList<Movie>> mapAno = new HashTableMapDH<>();
-	Map<String, LinkedList<Movie>> mapTipo = new HashTableMapDH<>();
+	Dictionary<String, Movie> m1 = new HashTableDictionarySC<>();
+	Dictionary<Integer, Movie> m2 = new HashTableDictionarySC<>();
+	Dictionary<String, Movie> m3 = new HashTableDictionarySC<>();
 
-	public void addContent(String title, int year, ArrayList<String> types) {
+	public void addContent(String title, int year, ArrayList<String> types){
+		Movie movie = new Movie(title, year, types);
+		m1.insert(title, movie);
+		m2.insert(year, movie);
+		for(String t: types){
+			m3.insert(t, movie);
+		}
+	}
 
-		LinkedList<Movie> l1 = mapTitulos.get(title);
-		if(l1==null){
-			l1 = new LinkedList<>();
-			l1.add(new Movie(title, year, types));
-			mapTitulos.put(title, l1);
+	public Iterable<Movie> findTitle(String title){
+		List<Movie> l = new LinkedList<>();
+		for(Entry<String, Movie> p: m1.findAll(title)){
+			l.add(p.getValue());
 		}
-		else{
-			l1.add(new Movie(title, year, types));
-		}
+		return l;
+	}
 
-		LinkedList<Movie> l2 = mapAno.get(year);
-		if(l2==null){
-			l2 = new LinkedList<>();
-			l2.add(new Movie(title, year, types));
-			mapAno.put(year, l2);
+	public Iterable<Movie> findYear(int year){
+		List<Movie> l = new LinkedList<>();
+		for(Entry<Integer, Movie> p: m2.findAll(year)){
+			l.add(p.getValue());
 		}
-		else{
-			l2.add(new Movie(title, year, types));
-		}
+		return l;
+	}
 
-		for(String type: types) {
-			LinkedList<Movie> l3 = mapTipo.get(type);
-			if (l3 == null) {
-				l3 = new LinkedList<>();
-				l3.add(new Movie(title, year, types));
-				mapTipo.put(type, l3);
-			} else {
-				l3.add(new Movie(title, year, types));
+	public Iterable<Movie> findType(String type){
+		List<Movie> l = new LinkedList<>();
+		for(Entry<String, Movie> p: m1.findAll(type)){
+			l.add(p.getValue());
+		}
+		return l;
+	}
+
+	public Iterable<Movie> findType(Set<String> type){
+		Set<Movie> l = new HashSet<>(); //para eliminar repeticiones
+		for(String t: type) {
+			for (Entry<String, Movie> p : m1.findAll(t)) {
+				l.add(p.getValue());
 			}
 		}
-	}
-	
-	public Iterable<Movie> findTitle(String title){
-		return mapTitulos.get(title);
-	}
-	
-	public Iterable<Movie> findYear(int year){
-		return mapAno.get(year);
-	}
-
-	public Iterable<Movie> findType(String type) {
-		return mapTipo.get(type);
-	}
-	
-	public Iterable<Movie> findType(Set<String> type){
-		Set<Movie> set = new HashSet<>();
-		for(String t: type){
-			set.addAll(mapTipo.get(t));
-		}
-		return set;
+		return l;
 	}
 
 }

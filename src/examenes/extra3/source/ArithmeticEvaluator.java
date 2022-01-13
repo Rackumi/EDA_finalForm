@@ -30,7 +30,7 @@ public class ArithmeticEvaluator {
      * Evalua el árbol.
      * @return El resultado de evaluar el árbol.
      */
-    public int evaualte() {
+    public int evaluate() {
         return 0;
     }
 

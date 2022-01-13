@@ -70,7 +70,7 @@ public class NetworkManager {
      * @param r
      * @return the routers connected to the router r
      */
-    List<Router> getRouters(Router r) {
+    public List<Router> getRouters(Router r) {
         List<Router> almacenRouters= new ArrayList<Router>();
         Vertex<Host> miRouter = buscaVertex (r);
         for (Edge<Integer> arco: grafo.incidentEdges(miRouter)) {
@@ -90,7 +90,7 @@ public class NetworkManager {
      * @param t
      * @return the router connected to the terminal t
      */
-    Router getRouter(Terminal t) {
+    public Router getRouter(Terminal t) {
         Vertex<Host> v = buscaVertex (t);
         for (Edge<Integer> arco: grafo.incidentEdges(v)) {
             return (Router) grafo.opposite(v, arco).getElement();

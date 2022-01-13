@@ -1,6 +1,6 @@
 package examenes.extra2.test;
 
-import examenes.extra2.solucion.socialnetwork.SocialNetwork;
+import examenes.extra2.source.socialNetwork.SocialNetwork;
 import org.junit.Assert;
 
 public class SocialNetworkTest {

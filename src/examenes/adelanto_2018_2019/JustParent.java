@@ -1,34 +1,30 @@
 package examenes.adelanto_2018_2019;
 
 import structures.Position;
-import structures.tree.iterators.BFSIterator;
 import structures.tree.narytree.NAryTree;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class JustParent<E> {
 
-    public Iterable<Position<E>> justParent(NAryTree<E> tree){ //padres no abuelos
-        List<Position<E>> l = new LinkedList<>();
-
-        Iterator<Position<E>> it = new BFSIterator<E>(tree);
-        boolean cond = true;
+    public Collection<Position<E>> justParent(NAryTree<E> t){
+        Set<Position<E>> set = new HashSet<>();
+        Iterator<Position<E>> it = t.iterator();
         while(it.hasNext()){
             Position<E> node = it.next();
-            if(!tree.isLeaf(node)) {
-                for (Position<E> p : tree.children(node)) {
-                    if (!tree.isLeaf(p)) { //si en algun momento se cumple que alguno de los hijos no sea leaf entonces ese nodo ya no nos vale
-                        cond = false;
+            if(!t.isLeaf(node)) {
+                boolean valid = true;
+                for (Position<E> p : t.children(node)) {
+                    if (!t.isLeaf(p)) { //si en algun momento se cumple que alguno de los hijos no sea leaf entonces ese nodo ya no nos vale
+                        valid = false;
                     }
                 }
-                if (cond) {
-                    l.add(node);
+                if (valid) {
+                    set.add(node);
                 }
             }
         }
-        return l;
+        return set;
     }
 
 }

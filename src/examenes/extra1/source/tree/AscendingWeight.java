@@ -16,7 +16,7 @@ public class AscendingWeight <E> {
      * @return
      */
     public int calculate(WeightedLinkedTree<E> tree, Position<E> node) {
-        throw new RuntimeException("Implementa este método");
+        return tree.getWeight(tree.root(), node);
     }
 
 }

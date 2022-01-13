@@ -1,0 +1,6 @@
+Páginas para corregir los arboles AVL, arboles rojonegro y arboles B
+
+https://www.cs.usfca.edu/~galles/visualization/
+https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
+https://www.cs.usfca.edu/~galles/visualization/RedBlack.html
+https://www.cs.usfca.edu/~galles/visualization/BTree.html

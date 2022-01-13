@@ -15,22 +15,20 @@ public class SumLevels {
 	}
 
     public int sumLevels(int[] levels){
-        int cont = 0;
-        Pair<Position<Integer>, Integer> node = new Pair<>(tree.root(), 0);
         Deque<Pair<Position<Integer>, Integer>> q = new LinkedList<>();
+        q.addFirst(new Pair(this.tree.root(), 0));
         Set<Integer> set = new HashSet<>();
         for(Integer p: levels){
             set.add(p);
         }
-
-        q.addFirst(node);
+        int cont = 0;
         while(!q.isEmpty()){
-            node = q.removeLast();
-            for(Position<Integer> p: tree.children(node.getFirst())){
-                q.addFirst(new Pair(p,node.getSecond()+1));
+            Pair<Position<Integer>, Integer> pos = q.removeLast();
+            for(Position<Integer> p: this.tree.children(pos.getFirst())){
+                q.addFirst(new Pair(p, pos.getSecond()+1));
             }
-            if(set.contains(node.getSecond())){
-                cont = cont + node.getFirst().getElement();
+            if(set.contains(pos.getSecond())){
+                cont += pos.getFirst().getElement();
             }
         }
 

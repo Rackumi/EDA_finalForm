@@ -57,7 +57,7 @@ public class ArithmeticEvaluatorTest {
         System.out.println("evaualte");
         ArithmeticEvaluator instance = new ArithmeticEvaluator("1+12/2");
         int expResult = 7;
-        int result = instance.evaualte();
+        int result = instance.evaluate();
         assertEquals(expResult, result);
     }
     

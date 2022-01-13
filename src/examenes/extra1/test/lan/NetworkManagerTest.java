@@ -3,9 +3,7 @@ package examenes.extra1.test.lan;
 import java.util.Arrays;
 import java.util.List;
 
-import examenes.extra1.source.lan.NetworkManager;
-import examenes.extra1.source.lan.Router;
-import examenes.extra1.source.lan.Terminal;
+import examenes.extra1.source.lan.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

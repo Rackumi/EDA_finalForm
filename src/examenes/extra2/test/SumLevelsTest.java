@@ -9,8 +9,6 @@ import org.junit.Test;
 import structures.Position;
 import structures.tree.binarytree.BinaryTree;
 import structures.tree.binarytree.LinkedBinaryTree;
-import structures.tree.narytree.LinkedTree;
-import structures.tree.narytree.NAryTree;
 
 public class SumLevelsTest {
 
