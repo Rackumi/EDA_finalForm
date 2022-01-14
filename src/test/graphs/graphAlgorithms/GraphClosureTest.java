@@ -1,12 +1,12 @@
-package practicas.practica4.test;
+package test.graphs.graphAlgorithms;
 
 import java.util.Collection;
 
-import practicas.practica4.GraphClosure;
 import structures.graphs.*;
 import org.junit.Test;
 import structures.graphs.digraph.Digraph;
 import structures.graphs.digraph.ELDigraph;
+import structures.graphs.graphAlgorithms.Recorridos;
 
 import static org.junit.Assert.*;
 
@@ -24,7 +24,7 @@ public class GraphClosureTest {
     @Test
     public void testTransitiveClosure() {
         System.out.println("transitiveClosure");
-        GraphClosure instance = new GraphClosure();
+        Recorridos instance = new Recorridos();
         ELDigraph<Integer,Boolean> digrafo = new ELDigraph<>();
         Vertex<Integer> insert0 = digrafo.insertVertex(0);
         Vertex<Integer> insert1 = digrafo.insertVertex(1);

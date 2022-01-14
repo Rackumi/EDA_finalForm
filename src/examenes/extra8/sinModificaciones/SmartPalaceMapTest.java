@@ -1,10 +1,10 @@
-package examenes.extra8.test;
+package examenes.extra8.sinModificaciones;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import examenes.extra8.Room;
-import examenes.extra8.SmartPalaceMap;
+import examenes.extra8.sinModificaciones.Room;
+import examenes.extra8.sinModificaciones.SmartPalaceMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,6 +42,7 @@ public class SmartPalaceMapTest {
      */
     @Test
     public void testgGetPath() {
+
         System.out.println("insertRoom");
         List<Room> conectedRooms = new ArrayList<>();
         SmartPalaceMap instance = new SmartPalaceMap();
@@ -52,7 +53,7 @@ public class SmartPalaceMapTest {
 
         conectedRooms.clear();
         conectedRooms.add(a);
-        conectedRooms.add(b);        
+//        conectedRooms.add(b);
         Room c = instance.insertRoom(conectedRooms);
         
         conectedRooms.clear();

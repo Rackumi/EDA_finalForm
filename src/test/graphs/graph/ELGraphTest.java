@@ -12,7 +12,7 @@ import structures.graphs.Vertex;
  *
  * @author Rackumi
  */
-public class GraphMejoradoTest extends TestCase {
+public class ELGraphTest extends TestCase {
 
     @Override
     public void setUp() {

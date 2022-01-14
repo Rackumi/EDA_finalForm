@@ -5,6 +5,8 @@ import java.util.*;
 import structures.Position;
 import structures.graphs.Edge;
 import structures.graphs.Vertex;
+import structures.graphs.digraph.Digraph;
+import structures.graphs.digraph.ELDigraph;
 import structures.graphs.graph.Graph;
 import structures.tree.Tree;
 import structures.tree.narytree.LinkedTree;
@@ -41,13 +43,40 @@ public class Recorridos<V, E> {
 
     /**
      * Devuelve el árbol que se genera al realizar el recorrido en profundidad
+     *
+     * @param graph
+     * @param source
+     * @return
+     */
+    public List<Vertex<V>> depthTravel(Graph<V,E> graph, Vertex<V> source){
+        Deque<Vertex<V>> s = new LinkedList<>();
+        Set<Vertex<V>> conj = new HashSet<>();
+        List<Vertex<V>> l = new LinkedList<>();
+
+        s.push(source);
+        while(!s.isEmpty()){
+            Vertex<V> pos = s.pop();
+            if(!conj.contains(pos)){
+                conj.add(pos);
+                l.add(pos);
+                for(Edge<E> e: graph.incidentEdges(pos)){
+                    Vertex<V> vertex = graph.opposite(pos, e);
+                    s.push(vertex);
+                }
+            }
+        }
+
+        return l;
+    }
+
+    /**
+     * Devuelve el árbol que se genera al realizar el recorrido en profundidad
      * 
      * @param graph
      * @param source
      * @return 
      */
-    //TODO creo que esta regular
-    public List<Vertex<V>> depthTravel(Graph<V,E> graph, Vertex<V> source){ //profundidad
+    public List<Vertex<V>> depthTravel2(Graph<V,E> graph, Vertex<V> source){ //profundidad
         Deque<Vertex<V>> s = new LinkedList<>();
         Set<Vertex<V>> conj = new HashSet<>();
         List<Vertex<V>> l = new LinkedList<>();
@@ -92,13 +121,10 @@ public class Recorridos<V, E> {
             if(!conj.contains(pos)){
                 conj.add(pos);
                 l.add(pos);
-            }
-            for(Edge<E> e: graph.incidentEdges(pos)){
-                Vertex<V> vertex = graph.opposite(pos, e);
-                q.addFirst(vertex);
-            }
-            if(l.size()==graph.vertices().size()){
-                return l;
+                for(Edge<E> e: graph.incidentEdges(pos)){
+                    Vertex<V> vertex = graph.opposite(pos, e);
+                    q.addFirst(vertex);
+                }
             }
         }
 
@@ -164,7 +190,7 @@ public class Recorridos<V, E> {
             }
             if(!conj.contains(pos)){
                 conj.add(pos);
-                parent = t.add(pos, parent);
+                parent = t.add(pos, parent); //TODO esta mal
             }
             for(Edge<E> e: graph.incidentEdges(pos)){
                 Vertex<V> vertex = graph.opposite(pos, e);
@@ -299,13 +325,46 @@ public class Recorridos<V, E> {
 //            for i=1 to v.size()
 //                for j=1 to v.size()
 //                    if (i != j) & (i != k) & (j != k)
-//                        if auxGraph[k-1].areAdjacent(v[i],v[k]) &
-//                            auxGraph[k-1].areAdjacent(v[k],v[j])
+//                        if auxGraph[k-1].areAdjacent(v[i],v[k]) && auxGraph[k-1].areAdjacent(v[k],v[j])
 //                            auxGraph[k].insertEdge(v[i],v[j])
 //        return auxGraph[v.size()]
 
-    public Graph<V,E> cierreTransitivo(Graph<V,E> graph){ //FloydWarshall
-        return null;
+    /**
+     * Computes the Digraph's transitive clousure using the Floyd-Wharsall algorithm
+     * @param g
+     * @return
+     */
+    public Digraph<V,E> transitiveClosure(Digraph<V,E> g){
+        for(Vertex<V> v1: g.vertices()) {
+            for(Vertex<V> v2: g.vertices()){
+                for(Vertex<V> v3: g.vertices()){
+                    if(g.areAdjacent(v2, v1) && g.areAdjacent(v1, v3) && !g.areAdjacent(v2, v3) && v2 != v3){
+                        g.insertEdge(v2, v3, null);
+                    }
+                }
+            }
+        }
+        return g;
+    }
+
+    /**
+     * Computes the Digraph's transitive clousure using the Floyd-Wharsall algorithm
+     * @param g
+     * @return
+     */
+    public Digraph<V,E> transitiveClosure2(Digraph<V,E> g){ //otra forma de hacerlo
+        for(Vertex<V> v: g.vertices()){
+            for (Edge<E> e1 : g.incidentEdges(v)){
+                Vertex<V> opp1 = g.opposite(v, e1);
+                for (Edge<E> e2 : g.outputEdges(v)){
+                    Vertex<V> opp2 = g.opposite(v, e2);
+                    if (opp1 != opp2 && !g.areAdjacent(opp1, opp2)){
+                        g.insertEdge(opp1, opp2, null);
+                    }
+                }
+            }
+        }
+        return g;
     }
 
 }

@@ -28,7 +28,7 @@ public interface Graph <V,E> {
     /**
      * @return the end vertex of the edge e distinct of v.
      */
-    Vertex<V> opposite(Vertex <V> v, Edge<E> e);
+    Vertex<V> opposite(Vertex<V> v, Edge<E> e);
 
     /**
      * @return an array storing the end vertices of edge.

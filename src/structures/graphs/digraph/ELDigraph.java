@@ -134,7 +134,7 @@ public class ELDigraph<V, E> implements Digraph<V, E> {
     }
 
     @Override
-    public Collection<? extends Edge<E>> incidentEdges(Vertex<V> v) {
+    public Collection<? extends Edge<E>> incidentEdges(Vertex<V> v) { //de entrada
         HashSet<Edge<E>> incidentEdges = new HashSet<>();
         for (ELEdge<E, V> e : edgeList) {
             if (e.getEndVertex() == v) {
@@ -222,8 +222,14 @@ public class ELDigraph<V, E> implements Digraph<V, E> {
     }
 
     @Override
-    public List<Edge<E>> outputEdges(Vertex<V> v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Edge<E>> outputEdges(Vertex<V> v) { //de salida
+        List<Edge<E>> out = new LinkedList<>();
+        for (ELEdge<E, V> e : edgeList) {
+            if (e.getStartVertex() == v) {
+                out.add(e);
+            }
+        }
+        return out;
     }
 
     @Override
