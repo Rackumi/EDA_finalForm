@@ -2,6 +2,7 @@ package structures.graphs.graphAlgorithms;
 
 import java.util.*;
 
+import practicas.practica2.Pair;
 import structures.Position;
 import structures.graphs.Edge;
 import structures.graphs.Vertex;
@@ -9,6 +10,7 @@ import structures.graphs.digraph.Digraph;
 import structures.graphs.digraph.ELDigraph;
 import structures.graphs.graph.Graph;
 import structures.tree.Tree;
+import structures.tree.binarySearchTree.DefaultComparator;
 import structures.tree.narytree.LinkedTree;
 import structures.tree.narytree.NAryTree;
 
@@ -308,13 +310,47 @@ public class Recorridos<V, E> {
 //
 //        return dist,previous
 
-    public List<Vertex<V>> dijkstra(Graph<V,E> graph, Vertex<V> source){
-        PriorityQueue<Vertex<V>> pq = new PriorityQueue<>();
+    public Map<Vertex<V>, Vertex<V>> dijkstra(Graph<V,E> graph, Vertex<V> source){
+        PriorityQueue<Pair<Vertex<V>, Integer>> pq = new PriorityQueue<>(new DijkstraComparator<>());
+        Map<Vertex<V>, Integer> dist = new HashMap<>();
+        Set<Vertex<V>> visited = new HashSet<>();
+        Map<Vertex<V>, Vertex<V>> previous = new HashMap<>();
 
         for(Vertex<V> v: graph.vertices()){
-
+            dist.put(v, Integer.MAX_VALUE);
+            previous.put(v, null);
         }
-        return null;
+
+        dist.put(source, 0);
+        pq.add(new Pair<>(source, 0));
+
+        while(!pq.isEmpty()){
+            Pair<Vertex<V>, Integer> pos = pq.remove();
+            visited.add(pos.getFirst());
+
+            for(Edge<E> e: graph.incidentEdges(pos.getFirst())){
+                Vertex<V> oppo = graph.opposite(pos.getFirst(), e);
+                int alt = dist.get(pos.getFirst()) + (Integer)e.getElement();
+                if(alt < dist.get(oppo) && !visited.contains(oppo)){
+                    dist.put(oppo, alt);
+                    previous.put(oppo, pos.getFirst());
+                    pq.add(new Pair<>(oppo, alt));
+                }
+            }
+        }
+
+        return previous;
+    }
+
+    private class DijkstraComparator<E> implements Comparator<E>{
+        @Override
+        public int compare(E o1, E o2) {
+            Pair<Integer, Integer> p1 = (Pair<Integer, Integer>)o1;
+            Pair<Integer, Integer> p2 = (Pair<Integer, Integer>)o2;
+            int key1 = p1.getSecond();
+            int key2 = p2.getSecond();
+            return key1 - key2;
+        }
     }
 
 //    algorithm FloydWarshall(graph)

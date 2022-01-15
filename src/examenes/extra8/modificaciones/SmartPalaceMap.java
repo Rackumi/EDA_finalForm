@@ -41,7 +41,7 @@ public class SmartPalaceMap {
         if (connectedRooms!=null && !connectedRooms.isEmpty()) {
             for (Room r : connectedRooms) {
                 Vertex<Room> auxR = map.get(r);
-                g.insertEdge(vertex, auxR, null);
+                g.insertEdge(vertex, auxR, 0);
             }
         }
     }
@@ -53,7 +53,7 @@ public class SmartPalaceMap {
     *         The first room will be room1 and the last one will be room2. 
     *         If no path is found it will return null.
     */
-    public List<Room> getPath(Room room1, Room room2) {
+    public List<Room> getPath2(Room room1, Room room2) {
         Map<Room, Position<Room>> m = new HashMap<>();
         NAryTree<Room> t = new LinkedTree<>();
         Set<Vertex<Room>> set = new HashSet<>();
@@ -84,13 +84,20 @@ public class SmartPalaceMap {
         return null;
     }
 
-    public List<Room> getPath2(Room room1, Room room2) {
+    public List<Room> getPath(Room room1, Room room2) {
         Recorridos<Room, Integer> rec = new Recorridos<>();
-        List<Edge<Integer>> l = rec.getPath(g, map.get(room1), map.get(room2));
-        for(Edge<Integer> e: l){
-            g.endVertices(e);
+        Map<Vertex<Room>, Vertex<Room>> m = rec.dijkstra(g, map.get(room1));
+        List<Room> l = new LinkedList<>();
+        while(m.get(map.get(room2)) != null){
+            l.add(map.get(room2).getElement());
+            room2 = m.get(map.get(room2)).getElement();
         }
-        return null;
+        if(l.isEmpty()){
+            return null;
+        }
+        l.add(room2);
+        Collections.reverse(l);
+        return l;
     }
 
     private List<Room> resultado(NAryTree<Room> t, Position<Room> pos){
@@ -118,4 +125,61 @@ public class SmartPalaceMap {
 
     }
 
+//    //1... CON PAIR
+//    public List<Room> getPath(Room room1, Room room2) {
+//        Deque<Vertex<Room>> deque = new ArrayDeque<>();
+//        ArrayList<Vertex<Room>> visited = new ArrayList<>();
+//        ArrayList<Pair<Room, HashSet<Room>>> pairs = new ArrayList<>();
+//        deque.add(map.get(room1));
+//        HashSet<Room> hashSetAnt = new HashSet<>();
+//        pairs.add(new Pair<>(room1, hashSetAnt));
+//        while (! deque.isEmpty()){
+//            Vertex<Room> first = deque.removeFirst();
+//            System.out.println("FIRST -- "+ first.getElement().getName());
+//            if (! visited.contains(first)) {
+//                visited.add(first);
+//                if (first.getValue() == room2) {
+//                    for (Pair<Room, HashSet<Room>> p : pairs){
+//                        if(room2 == p.getFirst()){
+//                            return devuelveCamino(p.getSecond());
+//                        }
+//                    }
+//                }
+//                for (Edge<Integer> e : grafo.incidentEdges(first)) {
+//                    Vertex<Room> opposite = grafo.opposite(first, e);
+//                    deque.add(opposite);
+//                    if(!visited.contains(opposite)) {
+//                        HashSet<Room> hashSet = buscaListaAnterior(pairs, first.getValue());
+//                        addedElementoLista(pairs, first.getValue(), opposite.getValue(), hashSet);
+//                    }
+//                }
+//            }
+//        }
+//        return null;
+//    }
+//
+//    private void addedElementoLista(ArrayList<Pair<Room, HashSet<Room>>> pairs, Room first, Room opp, HashSet<Room> hashSet){
+//        hashSet.add(first);
+//        Pair<Room, HashSet<Room>> par = new Pair<>(opp, hashSet);
+//        pairs.add(par);
+//    }
+//
+//    private HashSet<Room> buscaListaAnterior(ArrayList<Pair<Room, HashSet<Room>>> pairs, Room r){
+//        for(Pair<Room, HashSet<Room>> pair : pairs){
+//            if(pair.getFirst() == r){
+//                return pair.getSecond();
+//            }
+//        }
+//        return null;
+//    }
+//
+//    private List<Room> devuelveCamino(HashSet<Room> hashSet){
+//        LinkedList<Room> list = new LinkedList<>();
+//        for (Room r : hashSet){
+//            System.out.println(r.getName());
+//            list.add(0, r);
+//        }
+//        return list;
+//    }
+//
 }

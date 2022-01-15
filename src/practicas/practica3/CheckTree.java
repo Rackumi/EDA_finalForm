@@ -19,7 +19,7 @@ public class CheckTree<E extends Comparable> {
      * @param tree     
      * @return      
     */
-    public boolean isBinarySearchTree(BinaryTree<E> tree){
+    public boolean isBinarySearchTree(BinaryTree<E> tree){ //TODO
         boolean isBS = true;
         Comparator<E> comparator = new DefaultComparator<>();
         Iterator<Position<E>> it = tree.iterator();
@@ -46,7 +46,7 @@ public class CheckTree<E extends Comparable> {
      * @param tree
      * @return
      */
-    public boolean isBinarySearchTreeRec(BinaryTree<E> tree){
+    public boolean isBinarySearchTreeRec(BinaryTree<E> tree){ //TODO
         return isBinarySearchTreeRecAux(tree, tree.root(), true);
     }
 

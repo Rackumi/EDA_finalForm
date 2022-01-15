@@ -27,8 +27,8 @@ public class ClosestIntegerTest {
         }catch(Exception e){
             System.out.println(e.getLocalizedMessage());
         }
-        
-        BinarySearchTree<Integer> tree = new LinkedBinarySearchTree<>();
+
+        LinkedBinarySearchTree<Integer> tree = new LinkedBinarySearchTree<>();
         tree.insert(24);
         tree.insert(15);
         tree.insert(12);
@@ -43,6 +43,36 @@ public class ClosestIntegerTest {
         Position<Integer> result = instance.closest(tree, 5);
         assertEquals(expResult, result);
         assertEquals(dos, instance.closest(tree, 50));
+    }
+
+    /**
+     * Test of closest method, of class ClosestInteger recursive.
+     */
+    @Test
+    public void testClosestRec() {
+        System.out.println("closest");
+        ClosestInteger instance = new ClosestInteger();
+        try{
+            instance.closest(null, 0);
+        }catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
+        
+        LinkedBinarySearchTree<Integer> tree = new LinkedBinarySearchTree<>();
+        tree.insert(24);
+        tree.insert(15);
+        tree.insert(12);
+        Position<Integer> expResult = tree.insert(4);
+        tree.insert(19);
+        tree.insert(17);
+        tree.insert(21);
+        tree.insert(31);
+        tree.insert(29);
+        Position<Integer> dos = tree.insert(44);
+
+        Position<Integer> result = instance.closestRec(tree, 5);
+        assertEquals(expResult, result);
+        assertEquals(dos, instance.closestRec(tree, 50));
     }
     
 }

@@ -13,7 +13,7 @@ import structures.tree.iterators.InOrderIterator;
  */
 public class LinkedBinarySearchTree<E> implements BinarySearchTree<E> {
 
-    protected LinkedBinaryTree<E> binTree;
+    public LinkedBinaryTree<E> binTree;
     protected Comparator<E> comparator;
     protected int size = 0;
 

@@ -205,7 +205,7 @@ abstract public class AbstractTreeOrderedDict<K, V> implements OrderedDictionary
 
     }
 
-    public Iterable<Entry<K, V>> findRange (Position<Entry<K,V>> ent1, Position<Entry<K,V>> ent2){
+    public Iterable<Entry<K, V>> findRange(Position<Entry<K,V>> ent1, Position<Entry<K,V>> ent2){
         Iterable<Position<Entry<K, V>>> x = this.bsTree.findRange(ent1.getElement(), ent2.getElement());
         List<Entry<K, V>> l = new LinkedList<>();
         for (Position<Entry<K, V>> p : x) {

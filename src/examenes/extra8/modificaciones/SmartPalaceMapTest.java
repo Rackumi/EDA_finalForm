@@ -119,7 +119,7 @@ public class SmartPalaceMapTest {
 
         //test 4 D to A -> [D,C,A] || [D,E,A]
         l.add(d);
-        l.add(c);
+        l.add(e);
         l.add(a);
         List<Room> result4 = instance.getPath(d, a);
         assertEquals(l, result4);
