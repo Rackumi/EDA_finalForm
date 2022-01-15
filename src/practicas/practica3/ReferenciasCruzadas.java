@@ -17,7 +17,7 @@ public class ReferenciasCruzadas {
     * @param fichero
     * @throws java.io.IOException
     */
-    public ReferenciasCruzadas (FileReader fichero) throws IOException{
+    public ReferenciasCruzadas(FileReader fichero) throws IOException{
 //        Scanner sc = new Scanner(fichero).useDelimiter("[.,:;()?!\" \t\n\r]+");
         Scanner sc = new Scanner(fichero).useDelimiter("\\`|\\~|\\!|\\@|\\#|\\$|\\%|\\^|\\&|\\*|\\(|\\)|\\+|\\=|\\[|\\{|\\]|\\}|\\||\\\\|\\'|\\<|\\,|\\.|\\>|\\?|\\/|\\\"\"|\\;|\\:|\\s+");
         List<String> text = new LinkedList<>();
@@ -29,16 +29,15 @@ public class ReferenciasCruzadas {
 //        int cont = 1;
         int cont = 0;
         for(String p: text){
+            List<Integer> l;
             if (!map.containsKey(p)) {
-                List<Integer> l = new LinkedList<>();
-                l.add(cont);
-                map.put(p, l);
+                l = new LinkedList<>();
             }
             else{
-                List<Integer> l = map.get(p);
-                l.add(cont);
-                map.put(p, l);
+                l = map.get(p);
             }
+            l.add(cont);
+            map.put(p, l);
             cont++;
         }
         System.out.println(map);

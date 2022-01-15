@@ -6,6 +6,7 @@ import structures.graphs.Edge;
 import structures.graphs.Vertex;
 import structures.graphs.graph.ELGraph;
 import structures.graphs.graph.Graph;
+import structures.graphs.graphAlgorithms.Recorridos;
 import structures.tree.Tree;
 import structures.tree.narytree.LinkedTree;
 import structures.tree.narytree.NAryTree;
@@ -80,6 +81,15 @@ public class SmartPalaceMap {
             }
         }
 
+        return null;
+    }
+
+    public List<Room> getPath2(Room room1, Room room2) {
+        Recorridos<Room, Integer> rec = new Recorridos<>();
+        List<Edge<Integer>> l = rec.getPath(g, map.get(room1), map.get(room2));
+        for(Edge<Integer> e: l){
+            g.endVertices(e);
+        }
         return null;
     }
 

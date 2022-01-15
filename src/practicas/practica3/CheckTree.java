@@ -15,6 +15,7 @@ public class CheckTree<E extends Comparable> {
    
     /**
      * Receives a BinaryTree and returns true if the tree is a BinarySearchTree
+     * iterative
      * @param tree     
      * @return      
     */
@@ -38,8 +39,14 @@ public class CheckTree<E extends Comparable> {
         return isBS;
     }
 
+
+    /**
+     * Receives a BinaryTree and returns true if the tree is a BinarySearchTree
+     * recursive
+     * @param tree
+     * @return
+     */
     public boolean isBinarySearchTreeRec(BinaryTree<E> tree){
-        Comparator<E> comparator = new DefaultComparator<>();
         return isBinarySearchTreeRecAux(tree, tree.root(), true);
     }
 

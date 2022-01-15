@@ -334,12 +334,12 @@ public class Recorridos<V, E> {
      * @param g
      * @return
      */
-    public Digraph<V,E> transitiveClosure(Digraph<V,E> g){
+    public Digraph<V,E> transitiveClosure(Digraph<V,E> g){ //creo que aqui faltarian varias condiciones ya que el areadyacent no va en los dos sentidos
         for(Vertex<V> v1: g.vertices()) {
             for(Vertex<V> v2: g.vertices()){
                 for(Vertex<V> v3: g.vertices()){
                     if(g.areAdjacent(v2, v1) && g.areAdjacent(v1, v3) && !g.areAdjacent(v2, v3) && v2 != v3){
-                        g.insertEdge(v2, v3, null);
+                            g.insertEdge(v2, v3, null);
                     }
                 }
             }
@@ -358,7 +358,7 @@ public class Recorridos<V, E> {
                 Vertex<V> opp1 = g.opposite(v, e1);
                 for (Edge<E> e2 : g.outputEdges(v)){
                     Vertex<V> opp2 = g.opposite(v, e2);
-                    if (opp1 != opp2 && !g.areAdjacent(opp1, opp2)){
+                    if (opp1 != opp2 && !g.areAdjacent(opp1, opp2) && !g.areAdjacent(opp2, opp1)){
                         g.insertEdge(opp1, opp2, null);
                     }
                 }

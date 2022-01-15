@@ -23,7 +23,7 @@ public class ClosestInteger {
             throw new RuntimeException("The tree is null or empty");
         }
 
-        Iterator<Position<Integer>> it = tree.iterator();
+        Iterator<Position<Integer>> it = tree.iterator(); //TODO no usar iterador
         while(it.hasNext()) {
             Position<Integer> pos = it.next();
             Position<Integer> suc = tree.successor(pos);

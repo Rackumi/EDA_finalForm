@@ -171,7 +171,7 @@ public class ELDigraph<V, E> implements Digraph<V, E> {
 
     @Override
     public boolean areAdjacent(Vertex<V> start, Vertex<V> end) {
-        for (ELEdge edge : edgeList) {
+        for (ELEdge<E, V> edge : edgeList) {
             if ((edge.getStartVertex() == start) && (edge.getEndVertex() == end)) {
                 return true;
             }
