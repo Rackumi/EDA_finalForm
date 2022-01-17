@@ -54,8 +54,7 @@ public class GraphUtils<V, E> {
         return esConexo (g) && !tieneCiclos (g);
     }
 
-    private boolean tieneCiclos(Graph<V, E> g, Vertex<V> anterior, 
-                            Vertex<V> actual, HashSet<Vertex<V>> visitados) {
+    private boolean tieneCiclos(Graph<V, E> g, Vertex<V> anterior, Vertex<V> actual, HashSet<Vertex<V>> visitados) {
         visitados.add (actual);
         for (Edge<E> arco: g.incidentEdges(actual)) {
             Vertex<V> adyacente = g.opposite(actual, arco);

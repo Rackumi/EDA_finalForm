@@ -1,12 +1,25 @@
 package examenes.extra3.source;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Rackumi
+ *
  */
 public class SCW1HashMap<K, V> {
-    
-    private class Entry {
+
+    HashMap<K,V> bucket[] = new HashMap [100];;
+    int size;
+
+    public SCW1HashMap(){
+        for (int i=0; i<bucket.length; i++) {
+            bucket[i]= new HashMap<> ();
+        }
+        size=0;
+    }
+
+    private static class Entry<K,V> {
 
         private final K key;
         private final V value;
@@ -29,7 +42,7 @@ public class SCW1HashMap<K, V> {
      * @return un entero.
      */
     public int size() {
-        return 0;
+        return size;
     }
 
     /**
@@ -38,6 +51,11 @@ public class SCW1HashMap<K, V> {
      * @param value El valor
      */
     public void put(K key, V value) {
+        int posicion = key.hashCode() % 100;
+        V ret = bucket[posicion].put(key, value);
+        if(ret == null){
+            size++;
+        }
     }
 
     /**
@@ -47,7 +65,12 @@ public class SCW1HashMap<K, V> {
      * @return El valor.
      */
     public V get(K key) throws IllegalStateException {
-        throw new IllegalStateException();
+        int posicion = key.hashCode() % 100;
+        V ret = bucket[posicion].get(key);
+        if(ret == null){
+            throw new RuntimeException("error");
+        }
+        return ret;
     }
 
     /**
@@ -56,7 +79,12 @@ public class SCW1HashMap<K, V> {
      * @throws IllegalStateException Si la clave no existe.
      */
     public void remove(K key) throws IllegalStateException {
-        throw new IllegalStateException();
+        int posicion = key.hashCode() % 100;
+        V ret = bucket[posicion].remove(key);
+        if(ret == null){
+            throw new RuntimeException("error");
+        }
+        size--;
     }
 
 }

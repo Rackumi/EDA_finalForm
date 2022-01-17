@@ -89,10 +89,8 @@ public class ejRepaso {
             if(!visited.contains(vertex)){
                 for (Edge<Integer> e : g.incidentEdges(vertex)) {
                     Vertex<Integer> opo = g.opposite(vertex, e);
-                    if(!map.containsKey(opo)){
-                        map.put(opo, map.get(vertex) + 1);
-                        q.addFirst(opo);
-                    }
+                    map.put(opo, map.get(vertex) + 1);
+                    q.addFirst(opo);
                 }
                 if (map.get(vertex) == k) {
                     l.add(vertex);

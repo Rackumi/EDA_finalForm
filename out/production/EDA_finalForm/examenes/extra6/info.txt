@@ -1,5 +1,5 @@
-ej1.1 arbol B
+ej1.1 arbol B (ej 3 de hojas arboles B, es el mismo ejercicio k el de extraordinaria_2016_2017)
 ej1.2 diccionarios
 ej2.a arbol nary -
 ej2.b arbol nary -
-ej3 grafos
+ej3 grafos kruskal y prim

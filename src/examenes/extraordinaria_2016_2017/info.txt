@@ -1,0 +1,2 @@
+Ej ejercicio 1 se ha realizado en las hojas de ejercicios correspondientes
+Ej 2 y ej3 son el SCW1HashMap y el ArithmeticEvaluator del extra3

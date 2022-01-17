@@ -32,11 +32,10 @@ public class MRUCache {
                 String toDelete = cola.removeLast();
                 cache.remove(toDelete);
                 cola.addFirst(fname);
-                cache.put (fname, myfile);
             }else {
                 cola.add (fname);
-                cache.put (fname, myfile);
             }
+            cache.put (fname, myfile);
         }else {
             cola.remove(fname);
             cola.addFirst(fname);

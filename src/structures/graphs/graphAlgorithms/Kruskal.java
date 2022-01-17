@@ -4,11 +4,7 @@ import structures.graphs.Edge;
 import structures.graphs.Vertex;
 import structures.graphs.graph.Graph;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Los grafos utilizados por kruscal deben tener valores double en sus aristas
@@ -16,7 +12,7 @@ import java.util.Set;
  *
  * @author Rackumi
  */
-public class Kruskal <K> {
+public class Kruskal <K,V,E> {
 
 //	function Kruskal(graph)
 //	Initialice a priority queue Q with all edges using weights as keys
@@ -83,6 +79,54 @@ public class Kruskal <K> {
 				join(s1, s2);
 			}
 		}
+	}
+
+	public Iterable<Edge<Integer>> getKruskal(Graph<V, Integer> g) {
+		//Tipo Solucion
+		HashSet<Edge<Integer>> arcos_seleccionados = new HashSet<Edge<Integer>>();
+		//Para simular la columna de comp. Conexas
+		HashMap<V,V> compConexas = new HashMap<V,V>();
+		for (Vertex<V> v: g.vertices()) {
+			compConexas.put(v.getElement(), v.getElement());
+		}
+		//Me guardo todos los arcos en una bolsa mia
+		ArrayList<Edge<Integer>> todos_los_arcos = new ArrayList<Edge<Integer>>();
+		todos_los_arcos.addAll(g.edges());
+		while (arcos_seleccionados.size()!= g.vertices().size()-1) {
+			Edge<Integer> arco_mas_barato = dameMasBarato (todos_los_arcos);
+			todos_los_arcos.remove (arco_mas_barato);
+
+			Vertex<V> e1 = g.endVertices(arco_mas_barato).get(0);
+			Vertex<V> e2 = g.endVertices(arco_mas_barato).get(1);
+
+			V color1 = compConexas.get(e1.getElement());
+			V color2 = compConexas.get(e2.getElement());
+
+			if (color1==color2) {
+				System.out.println ("Rechazada");
+			}else {
+				//Recorremos toda tabla y si una entrada tiene como color el 1 ponemos el 2
+				for (Map.Entry<V,V> entrada: compConexas.entrySet()) {
+					if (entrada.getValue().equals(color1)) {
+						compConexas.put (entrada.getKey(), color2);
+					}
+				}
+				//Añadir el arco a la solucion
+				arcos_seleccionados.add(arco_mas_barato);
+			}
+		}
+		return arcos_seleccionados;
+	}
+
+	private Edge<Integer> dameMasBarato(ArrayList<Edge<Integer>> todos_los_arcos) {
+		Edge<Integer> mejor = todos_los_arcos.get(0);
+		for (Edge<Integer> arco: todos_los_arcos) {
+			if (arco.getElement()<mejor.getElement()) {
+				mejor = arco;
+			}
+		}
+		return mejor;
+
 	}
 
 }

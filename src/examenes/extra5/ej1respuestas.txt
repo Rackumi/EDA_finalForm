@@ -1,10 +1,10 @@
-1. c
-2.
+1. c / d (seria un diccionario pero te dice ke no se puede repetir id)
+2. a
 3. c
-4.
+4. a
 5. b
-6.
+6. c
 7. b
-8.
-9.
-10.
+8. c
+9. c
+10. d

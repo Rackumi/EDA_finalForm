@@ -2,7 +2,6 @@ package practicas.practica4.test;
 
 import org.junit.Test;
 import practicas.practica4.ParchisBoard;
-import practicas.practica4.ParchisChip;
 
 import static org.junit.Assert.*;
 
@@ -21,7 +20,7 @@ public class ParchisBoardTest {
     public void testMove() {
         System.out.println("move");
         ParchisBoard board = new ParchisBoard();
-        ParchisChip a = board.getChip(0,ParchisBoard.SquareType.Home,ParchisBoard.Color.yellow);
+        ParchisBoard.ParchisChip a = board.getChip(0,ParchisBoard.SquareType.Home,ParchisBoard.Color.yellow);
         assertEquals(board.move(a,1),null);  
     }
 
@@ -32,7 +31,7 @@ public class ParchisBoardTest {
     public void testCanMove() {
         System.out.println("canMove");
         ParchisBoard board = new ParchisBoard();
-        ParchisChip a = board.getChip(0,ParchisBoard.SquareType.Home,ParchisBoard.Color.yellow);
+        ParchisBoard.ParchisChip a = board.getChip(0,ParchisBoard.SquareType.Home,ParchisBoard.Color.yellow);
         assertEquals(board.canMove(a,1),true);  
     }
 
@@ -43,8 +42,8 @@ public class ParchisBoardTest {
     public void testDrawBoard() {
         System.out.println("drawBoard");
         ParchisBoard board = new ParchisBoard();
-        ParchisChip a = board.getChip(0,ParchisBoard.SquareType.Home,ParchisBoard.Color.yellow);
-        String expResult = "YellowHome->Yellow(4)\nBlue Home->Blue(4)\nRed Home->Red(4)\nGreen Home->Green(4)\n5->Yellow(1)";
+        ParchisBoard.ParchisChip a = board.getChip(0,ParchisBoard.SquareType.Home,ParchisBoard.Color.yellow);
+        String expResult = "Yellow Home->Yellow(4)\nBlue Home->Blue(4)\nRed Home->Red(4)\nGreen Home->Green(4)\n5->Yellow(1)";
         assertEquals(expResult, board.drawBoard());
     }
     

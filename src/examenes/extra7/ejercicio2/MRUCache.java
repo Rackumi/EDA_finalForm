@@ -25,14 +25,11 @@ public class MRUCache {
 
         if(f==null){
             MyFile mf = readFileFromDisk(fname);
-            mru.addFirst(fname);
         }
         else{
             mru.removeLast();
-            mru.addFirst(fname);
         }
-
-
+        mru.addFirst(fname);
 
 
         return null;
@@ -45,7 +42,7 @@ public class MRUCache {
     public void printMRU() {
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
        // Number of entries in MRU cache is set to 10 
        MRUCache h1=new MRUCache(10);
         for (int i = 1; i <= 20; i++) {

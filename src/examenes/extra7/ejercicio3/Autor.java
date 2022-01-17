@@ -1,7 +1,6 @@
 package examenes.extra7.ejercicio3;
 
 /**
- *
  * @author Rackumi
  */
 public class Autor implements Comparable {
