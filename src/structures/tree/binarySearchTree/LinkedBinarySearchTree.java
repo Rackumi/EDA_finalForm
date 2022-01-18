@@ -301,9 +301,6 @@ public class LinkedBinarySearchTree<E> implements BinarySearchTree<E> {
         Position<E> nodeMin = treeSearch(minValue, this.binTree.root());
         Position<E> nodeMax = treeSearch(maxValue, this.binTree.root());
 
-//        System.out.println("nodemin = " + nodeMin.getElement());
-//        System.out.println("nodemax = " + nodeMax.getElement());
-
         if (comparator.compare(nodeMin.getElement(), maxValue) > 0 || comparator.compare(nodeMax.getElement(), minValue) < 0) {
             return l;
         }

@@ -33,7 +33,7 @@ public class Parejas {
 
     public static void main(String[] args){
         ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(1,3, 12, 23, 1, 2, 2));
-        parejas(arrayList, 5);
+        parejas(arrayList, 4);
         printMap(pares);
     }
 

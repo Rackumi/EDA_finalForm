@@ -1,0 +1,5 @@
+ej1.1 -> Hoja de problemas tablahash ej5
+ej1.2 -> Lo mejor seria usar un arn o un avl ya que estos estan balanceado lo ke hace que tengan una complejidad O(log(n))
+ej1.3 -> Hoja de problemas de arboles B ej4
+ej2 -> Conjunto difuso
+ej3 -> Parejas (es un algoritmo voraz, no deberia ser temario de EDA)
