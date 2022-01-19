@@ -66,7 +66,7 @@ public class Half<E> {
         if(tree.hasRight(node)){
             right = getHeight(tree, tree.right(node));
         }
-        return Math.max(left, right) + 1;
+        return Math.max(left, right) + 1; //+1 por la raiz desde donde llamamos
     }
 
 }

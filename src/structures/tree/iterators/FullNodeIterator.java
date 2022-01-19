@@ -9,7 +9,7 @@ import structures.tree.binarytree.BinaryTree;
  */
 public class FullNodeIterator<T> implements Iterator<Position<T>> {
 
-    public FullNodeIterator (BinaryTree<T> tree){
+    public FullNodeIterator (BinaryTree<T> tree){ //ni idea que es este iterador x)
         
     }
 

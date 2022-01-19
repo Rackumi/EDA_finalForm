@@ -310,7 +310,7 @@ public class Recorridos<V, E> {
 //
 //        return dist,previous
 
-    public Map<Vertex<V>, Vertex<V>> dijkstra(Graph<V,E> graph, Vertex<V> source){
+    public Map<Vertex<V>, Vertex<V>> dijkstra(Graph<V,E> graph, Vertex<V> source){ //devuelve
         PriorityQueue<Pair<Vertex<V>, Integer>> pq = new PriorityQueue<>(new DijkstraComparator<>());
         Map<Vertex<V>, Integer> dist = new HashMap<>();
         Set<Vertex<V>> visited = new HashSet<>();

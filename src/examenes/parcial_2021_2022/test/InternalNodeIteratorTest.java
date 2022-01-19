@@ -3,11 +3,11 @@ package examenes.parcial_2021_2022.test;
 import java.util.HashSet;
 import java.util.Set;
 
-import examenes.ordinaria_2015_2016.ejercicio1.InternalNodeIterator;
 import structures.Position;
 import org.junit.Test;
 import structures.tree.binarytree.BinaryTree;
 import structures.tree.binarytree.LinkedBinaryTree;
+import structures.tree.iterators.InternalIterator;
 
 import static org.junit.Assert.*;
 
@@ -41,13 +41,13 @@ public class InternalNodeIteratorTest {
     public void testHasNextAndNext() {
         System.out.println("hasNext and next");
         BinaryTree<Integer> t = new LinkedBinaryTree<>();
-        InternalNodeIterator<Integer> instance = new InternalNodeIterator<>(t);
+        InternalIterator<Integer> instance = new InternalIterator<>(t);
         assertFalse(instance.hasNext());
         t.addRoot(25);
-        instance = new InternalNodeIterator<>(t);
+        instance = new InternalIterator<>(t);
         assertFalse(instance.hasNext());
         t = inicializa();
-        instance = new InternalNodeIterator<>(t);
+        instance = new InternalIterator<>(t);
         assertTrue(instance.hasNext());
         Set<Position<Integer>> l = new HashSet<>();
         l.add(p5); l.add(p6); l.add(p7);

@@ -1,0 +1,5 @@
+ej1.1 -> hoja hashtable ej8
+ej1.2 -> hoja arboles B ej 5
+ej1.3 -> hoja avl ej11 y hoja arn ej10
+ej2 -> ejercicio hecho en extra6 ej2
+ej3 ->

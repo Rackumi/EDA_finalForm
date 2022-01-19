@@ -1,13 +1,12 @@
 package examenes.parcial_2020_2021.test;
 
-import examenes.parcial_2020_2021.exam.CommonAncestorTree;
+import examenes.parcial_2020_2021.source.CommonAncestorTree;
 import structures.Position;
 
 import structures.tree.narytree.LinkedTree;
 import structures.tree.narytree.NAryTree;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CommonAncestorTreeTest {

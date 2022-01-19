@@ -1,8 +1,3 @@
-
-
-
-
-
 //a) Usaremos una estructura de tipo diccionario para guardar las multas que vayan llegando,
 //usando como clave la matrícula del vehiculo. El uso de un diccionario para esto quedará
 //justificado, dado que, pueden existir más de una multa con el mismo número de matrícula.
@@ -15,9 +10,7 @@
 //donde la clave sea el ID de radar y el valor sea el contador que ira siendo modificado usando get y put.
 
 
-
 //b)
-
 //class CentroControl {
 //	BSTOrderedDict <String,Multa> dict = new BSTOrderedDict <String,Multa>();
 //
@@ -28,9 +21,9 @@
 //
 //
 //}
-//
+
+
 //c)
-//
 //public void setMulta (Multa m) {
 //
 //	dict.insert(m.getMatricula(), m);

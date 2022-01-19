@@ -3,8 +3,8 @@ package examenes.parcial_2021_2022.test;
 import structures.Position;
 import org.junit.Test;
 import structures.tree.binarytree.BinaryTree;
+import structures.tree.binarytree.BinaryTreeUtils;
 import structures.tree.binarytree.LinkedBinaryTree;
-import structures.tree.binarytree.MoreFunctionality;
 
 import static org.junit.Assert.*;
 
@@ -32,16 +32,16 @@ public class MoreFunctionalityTest {
     }
 
     /**
-     * Test of isPerfect method, of class MoreFunctionality.
+     * Test of isPerfect method, of class BinaryTreeUtils.
      */
     @Test
     public void testIsPerfect() {
         System.out.println("isPerfect");
-        MoreFunctionality<Integer> instance = new MoreFunctionality<>();
         BinaryTree<Integer> t = new LinkedBinaryTree<>();
+        BinaryTreeUtils<Integer> instance = new BinaryTreeUtils<>(t);
         assertTrue(instance.isPerfect(t));
         t.addRoot(20);
-        assertFalse(instance.isPerfect(t));
+        assertTrue(instance.isPerfect(t));
         t = inicializa();
         assertTrue(instance.isPerfect(t));
         t.insertLeft(p9, 25);

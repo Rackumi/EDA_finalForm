@@ -1,9 +1,8 @@
 package examenes.ordinaria_2015_2016.solucion.ejercicio1;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+
 import structures.Position;
-import structures.tree.Tree;
 import structures.tree.binarytree.BinaryTree;
 import structures.tree.iterators.InOrderIterator;
 
@@ -19,6 +18,7 @@ public class TreeUtils<E> {
         }
         return cont;
     }
+
     private int contarNodos (BinaryTree <E> t, Position<E> p) {
         Iterator it = new InOrderIterator(t,p);
         int cont = 0;
@@ -28,21 +28,22 @@ public class TreeUtils<E> {
         }
         return cont;
     }
+
     public boolean isOdd(BinaryTree <E> t) {
         if ((t.isEmpty()) || (t.isLeaf(t.root()))) {
             return true;
         }
         int contNodosEnIzquierda = 0;
-//        if (t.hasLeft(t.root())) {
+        if (t.hasLeft(t.root())) {
             contNodosEnIzquierda = contarNodos (t, t.left(t.root()));
-//            if (contNodosEnIzquierda> t.size()/2) {
-//                return true;
-//            }else {
-//                return false;
-//            }
-//        }else {
+            if (contNodosEnIzquierda> t.size()/2) {
+                return true;
+            }else {
+                return false;
+            }
+        }else {
             return false;
-//        }
+        }
     }
 
     public boolean isPerfect(BinaryTree <E> t) {

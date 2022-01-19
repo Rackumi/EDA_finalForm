@@ -1,9 +1,7 @@
 package examenes.ordinaria_2015_2016.ejercicio1;
 
-import java.util.ArrayList;
-import structures.Position;
-import structures.tree.Tree;
 import structures.tree.binarytree.BinaryTree;
+import structures.tree.binarytree.BinaryTreeUtils;
 
 /**
  *
@@ -11,12 +9,14 @@ import structures.tree.binarytree.BinaryTree;
  */
 public class TreeUtils<E> {
 
-    public int isOdd(BinaryTree <E> t) {
-        return 0;
+    BinaryTreeUtils binaryTreeUtils = new BinaryTreeUtils(); //ya estan implementados en el binaryTreeUtils
+
+    public boolean isOdd(BinaryTree <E> t) {
+        return binaryTreeUtils.isOdd(t);
     }
 
     public boolean isPerfect(BinaryTree <E> t) {
-    	return true;
+    	return binaryTreeUtils.isPerfect(t);
     }
 
 }

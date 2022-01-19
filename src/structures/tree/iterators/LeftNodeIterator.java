@@ -15,7 +15,7 @@ public class LeftNodeIterator<T> implements Iterator<Position<T>> {
     BinaryTree<T> tree;
     Deque<Position<T>> q;
 
-    public LeftNodeIterator (BinaryTree<T> tree){
+    public LeftNodeIterator(BinaryTree<T> tree){
         this.tree = tree;
         q = new LinkedList<>();
         if(!tree.isEmpty()){
@@ -23,6 +23,7 @@ public class LeftNodeIterator<T> implements Iterator<Position<T>> {
         }
     }
 
+    //hasNext puede devolver true cuando no quedan más nodos izquierdos, habria que solucionarlo.
     @Override
     public boolean hasNext() {
         return !q.isEmpty();
@@ -35,7 +36,7 @@ public class LeftNodeIterator<T> implements Iterator<Position<T>> {
             q.addFirst(p);
         }
         Position<T> parent = tree.parent(node);
-        if(parent != null){
+        if(!tree.isRoot(node)){
             if(tree.hasLeft(parent)){
                 if(tree.left(parent).equals(node)){
                     return node;

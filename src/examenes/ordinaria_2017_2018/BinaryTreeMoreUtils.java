@@ -14,11 +14,11 @@ public class BinaryTreeMoreUtils<E> {
         this.tree = tree;
     }
 
-    public Set<Integer> levelsComplete(BinaryTree<E> tree){
-        Set<Integer> l1 = new HashSet<>();
-        Set<Integer> l2 = new HashSet<>();
+    public Iterable<Integer> levelsComplete(BinaryTree<E> tree){
+        Set<Integer> l1 = new HashSet<>();//niveles completos
+        Set<Integer> l2 = new HashSet<>();//niveles incompletos
         Deque<Pair<Position<E>, Integer>> q = new LinkedList<>();
-        q.addFirst(new Pair(tree.root(), 1));
+        q.addFirst(new Pair(tree.root(), 1)); // se ha considerado que la raiz es altura 1 para que cuadre con el enunciado
 
         while(!q.isEmpty()){
             Pair<Position<E>, Integer> node = q.removeLast();
@@ -35,14 +35,13 @@ public class BinaryTreeMoreUtils<E> {
         for(Integer p: l2){
             l1.remove(p);
         }
-//        l1.remove(l2);
         return l1;
     }
 
-    public Set<Integer> levelsIncomplete(BinaryTree<E> tree){
+    public Iterable<Integer> levelsIncomplete(BinaryTree<E> tree){
         Set<Integer> l = new HashSet<>();
         Deque<Pair<Position<E>, Integer>> q = new LinkedList<>();
-        q.addFirst(new Pair(tree.root(), 1));
+        q.addFirst(new Pair(tree.root(), 1)); // se ha considerado que la raiz es altura 1 para que cuadre con el enunciado
 
         while(!q.isEmpty()){
             Pair<Position<E>, Integer> node = q.removeLast();

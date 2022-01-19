@@ -1,11 +1,9 @@
-package examenes.parcial_2020_2021.exam;
+package examenes.parcial_2020_2021.source;
 
 import structures.Position;
-import structures.tree.narytree.LinkedTree;
 import structures.tree.narytree.NAryTree;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Set;
 
 public class CommonAncestorTree<E> {

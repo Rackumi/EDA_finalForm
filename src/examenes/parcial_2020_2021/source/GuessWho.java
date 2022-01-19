@@ -1,15 +1,8 @@
-package examenes.parcial_2020_2021.exam;
-
-import structures.Position;
-import structures.tree.binarytree.BinaryTree;
-import structures.tree.binarytree.LinkedBinaryTree;
+package examenes.parcial_2020_2021.source;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class GuessWho {
 

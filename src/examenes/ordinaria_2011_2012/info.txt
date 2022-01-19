@@ -1,0 +1,6 @@
+ej1.1 -> hecho en la hoja de tablas hash ej5
+ej1.2 -> hecho en hoja de arboles AVL ej 10
+ej1.3 -> Este diccionario lo implementé por algun lado, basicamente se organizarian de menor a mayor
+ej1.4 -> No hemos dado tan en profundidad arboles B
+ej2 -> diccionario ordenado
+ej3 -> hecho en ej2 de extra7

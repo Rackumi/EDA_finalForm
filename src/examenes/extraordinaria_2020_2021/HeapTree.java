@@ -3,7 +3,7 @@ package examenes.extraordinaria_2020_2021;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class HeapTree<E> {
+public class HeapTree<E> { //este ejercicio es bastasta loco, no obesesionarse con él (no está bien resuelto)
 
     private int n;
     private int size;

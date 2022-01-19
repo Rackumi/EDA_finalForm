@@ -9,19 +9,23 @@ import java.util.LinkedList;
 
 public class InternalIterator<E>  implements Iterator<Position<E>> {
 
-    Deque<Position<E>> q;
+    Deque<Position<E>> q = new LinkedList<>();;
     Tree<E> tree;
 
     public InternalIterator(Tree<E> tree){
-        this(tree, tree.root());
+        this.tree = tree;
+        if(!tree.isEmpty()){
+            if(tree.isInternal(this.tree.root())) {
+                this.q.addFirst(this.tree.root());
+            }
+        }
     }
 
     public InternalIterator(Tree<E> tree, Position<E> root){
         this.tree = tree;
-        q = new LinkedList<>();
         if(!tree.isEmpty()) {
             if(tree.isInternal(root)) {
-                q.addFirst(root);
+                this.q.addFirst(root);
             }
         }
     }

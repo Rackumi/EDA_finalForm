@@ -1,6 +1,9 @@
 package structures.tree.iterators;
 
+import java.util.Deque;
 import java.util.Iterator;
+import java.util.LinkedList;
+
 import structures.Position;
 import structures.tree.binarytree.BinaryTree;
 
@@ -9,19 +12,38 @@ import structures.tree.binarytree.BinaryTree;
  */
 public class RightNodeIterator<T> implements Iterator<Position<T>> {
 
-    public RightNodeIterator (BinaryTree<T> tree){
-        
+    BinaryTree<T> tree;
+    Deque<Position<T>> q;
+
+    public RightNodeIterator(BinaryTree<T> tree){
+        this.tree = tree;
+        q = new LinkedList<>();
+        if(!tree.isEmpty()){
+            q.addFirst(tree.root());
+        }
     }
-    
+
+    //hasNext puede devolver true cuando no quedan más nodos derechos, habria que solucionarlo.
     @Override
     public boolean hasNext() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return !q.isEmpty();
     }
 
     @Override
     public Position<T> next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+        Position<T> node = q.removeLast();
+        for(Position<T> p: tree.children(node)){
+            q.addFirst(p);
+        }
+        Position<T> parent = tree.parent(node);
+        if(!tree.isRoot(node)){
+            if(tree.hasRight(parent)){
+                if(tree.right(parent).equals(node)){
+                    return node;
+                }
+            }
+        }
+        return next();
     }
-    
+
 }

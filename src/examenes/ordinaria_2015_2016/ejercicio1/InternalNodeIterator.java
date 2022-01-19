@@ -5,21 +5,23 @@ import java.util.Iterator;
 import java.util.Queue;
 import structures.Position;
 import structures.tree.Tree;
+import structures.tree.iterators.InternalIterator;
 
 public class InternalNodeIterator<E> implements Iterator<Position<E>> {
 
-	
+    InternalIterator<E> internalIterator; //ya esta implementado en los iteradores
+
 	public InternalNodeIterator(Tree<E> tree) {
-		
+		this.internalIterator = new InternalIterator<>(tree);
 	}
 
     public InternalNodeIterator(Tree<E> tree, Position<E> root) {
-    	
+        this.internalIterator = new InternalIterator<>(tree, root);
     }
 
     @Override
     public boolean hasNext() {
-        return false;
+        return this.internalIterator.hasNext();
     }
 
     /**
@@ -28,7 +30,7 @@ public class InternalNodeIterator<E> implements Iterator<Position<E>> {
      */
     @Override
     public Position<E> next() {
-        return null;
+        return this.internalIterator.next();
     }
 
 }
