@@ -1,0 +1,5 @@
+ej1.1 -> hojas tablas hash ej6 (no esta hecho xq vaya puta pereza el rehashing)
+ej1.2 -> hojas arbol B ej 7
+ej1.3 -> hojas arn ej 11
+ej2 -> funciones ya añadidas de otras practicas
+ej3 -> caso de uso

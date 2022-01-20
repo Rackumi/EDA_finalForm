@@ -1,0 +1,4 @@
+ej1.1 -> hojas de avl ej 12
+ej1.2 -> hojas de arbol B ej 6
+ej2 -> estan hechos en structures
+ej3 -> caso de uso

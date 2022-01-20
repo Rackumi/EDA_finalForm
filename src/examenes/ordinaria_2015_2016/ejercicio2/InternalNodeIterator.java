@@ -1,8 +1,7 @@
-package examenes.ordinaria_2015_2016.ejercicio1;
+package examenes.ordinaria_2015_2016.ejercicio2;
 
-import java.util.ArrayDeque;
 import java.util.Iterator;
-import java.util.Queue;
+
 import structures.Position;
 import structures.tree.Tree;
 import structures.tree.iterators.InternalIterator;

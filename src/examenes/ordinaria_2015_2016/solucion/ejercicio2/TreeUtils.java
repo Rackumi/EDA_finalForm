@@ -1,4 +1,4 @@
-package examenes.ordinaria_2015_2016.solucion.ejercicio1;
+package examenes.ordinaria_2015_2016.solucion.ejercicio2;
 
 import java.util.Iterator;
 

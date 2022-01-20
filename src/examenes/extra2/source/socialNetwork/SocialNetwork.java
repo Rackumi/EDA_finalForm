@@ -16,7 +16,6 @@ public class SocialNetwork {
 
     Graph<String, Integer> g;
     Map<String, Vertex<String>> map;
-    Vertex<String> inic;
 
     public SocialNetwork() {
         g = new ALGraph<>();
@@ -30,7 +29,6 @@ public class SocialNetwork {
     public void addUser(String user) {
 		Vertex<String> v = g.insertVertex(user);
         map.put(user, v);
-        inic = v;
     }
 
     /**
@@ -74,7 +72,7 @@ public class SocialNetwork {
      */
     public int groups() { //este mas bien te dice si es conexo o no
         Recorridos<String, Integer> recorridos = new Recorridos<>();
-        Set<Vertex<String>> rec = recorridos.traverse(g, inic);
+        Set<Vertex<String>> rec = recorridos.traverse(g, g.vertices().iterator().next());
         int cont = 1;
         if(rec.size() == g.vertices().size()){
             return cont;

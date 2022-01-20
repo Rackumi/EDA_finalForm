@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 /**
  * @author Rackumi
  */
-public class OrganiserTest {
+public class OrganiserTest { //son tests para otro enunciado parecido
     
     public OrganiserTest() {
     }

@@ -1,10 +1,9 @@
 package examenes.parcial_2020_2021.test;
 
-import examenes.parcial_2020_2021.solucion.GuessWho;
+import examenes.parcial_2020_2021.source.GuessWho;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GuessWhoTest {
@@ -14,7 +13,7 @@ class GuessWhoTest {
     @BeforeEach
     void setUp() {
         game = new GuessWho();
-        game.loadGame("files/marvel.txt");
+        game.loadGame("src/examenes/parcial_2020_2021/test/files/marvel.txt");
     }
 
     @Test
@@ -59,19 +58,19 @@ class GuessWhoTest {
 
     @Test
     void solve1() {
-        String result = game.solve("files/spiderman.txt");
+        String result = game.solve("src/examenes/parcial_2020_2021/test/files/spiderman.txt");
         assertEquals("Spiderman", result);
     }
 
     @Test
     void solve2() {
-        String result = game.solve("files/incorrecto.txt");
+        String result = game.solve("src/examenes/parcial_2020_2021/test/files/incorrecto.txt");
         assertEquals("INCORRECTO", result);
     }
 
     @Test
     void solve3() {
-        String result = game.solve("files/hulka.txt");
+        String result = game.solve("src/examenes/parcial_2020_2021/test/files/hulka.txt");
         assertEquals("Hulka", result);
     }
 

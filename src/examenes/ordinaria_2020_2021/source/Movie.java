@@ -1,16 +1,16 @@
-package examenes.ordinaria_2020_2021;
+package examenes.ordinaria_2020_2021.source;
 
 import java.util.Objects;
 
 public class Movie implements Comparable<Movie> {
-    //                     String title = tokens[0];
-    //                    float rate = Float.parseFloat(tokens[1]);
-    //                    boolean netflix = Integer.parseInt(tokens[2]) == 1;
-    //                    boolean hulu = Integer.parseInt(tokens[3]) == 1;
-    //                    boolean primevideo = Integer.parseInt(tokens[4]) == 1;
-    //                    boolean disney = Integer.parseInt(tokens[5]) == 1;
-    //                    String[] genresList = tokens[6].split(";");
-    //                    int runtime = Integer.parseInt(tokens[7]);
+//                        String title = tokens[0];
+//                        float rate = Float.parseFloat(tokens[1]);
+//                        boolean netflix = Integer.parseInt(tokens[2]) == 1;
+//                        boolean hulu = Integer.parseInt(tokens[3]) == 1;
+//                        boolean primevideo = Integer.parseInt(tokens[4]) == 1;
+//                        boolean disney = Integer.parseInt(tokens[5]) == 1;
+//                        String[] genresList = tokens[6].split(";");
+//                        int runtime = Integer.parseInt(tokens[7]);
 
     private String title;
     private float rate;

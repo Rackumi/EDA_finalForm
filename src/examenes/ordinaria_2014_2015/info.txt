@@ -1,5 +1,4 @@
-ej1.1 ->
-ej1.2 ->
-ej1.3 ->
-ej2 ->
+ej1.1 -> No hemos dado ficheros tan a fondo
+ej1.2 -> Hecho en hojas de tablas hash ej 9
+ej2 -> utils arboles, hecho en NAryTreeUtils
 ej3 -> es el ej2 del extra5

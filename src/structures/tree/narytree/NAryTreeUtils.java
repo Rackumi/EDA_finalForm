@@ -119,4 +119,51 @@ public class NAryTreeUtils<E> {
         return Collections.max(sib)+1;
     }
 
+    public void clear(NAryTree<E> t){
+        if(t instanceof LinkedTree){
+            t = new LinkedTree<>();
+        }
+        if(t instanceof LCRSTree){
+            t = new LCRSTree<>();
+        }
+    }
+
+    public NAryTree<E> copyToAnotherType(NAryTree<E> t){
+        if(t instanceof LinkedTree){
+            LinkedTree<E> newTree = new LinkedTree<>();
+            copyLinkedTree((LinkedTree)t, newTree, t.root(), null);
+            return newTree;
+        }
+        if(t instanceof LCRSTree){
+            LCRSTree<E> newTree = new LCRSTree<>();
+            copyLCRSTree((LCRSTree)t, newTree, t.root(), null);
+            return newTree;
+        }
+        return null;
+    }
+
+    private void copyLinkedTree(LinkedTree<E> oldT, LinkedTree<E> newT, Position<E> nodeOld, Position<E> nodeNew){
+        if(newT.isEmpty()) {
+            newT.addRoot(nodeOld.getElement());
+        }
+        else{
+            for(Position<E> pos: oldT.children(nodeOld)){
+                Position<E> aux = newT.add(pos.getElement(), nodeNew);
+                copyLinkedTree(oldT, newT, pos, aux);
+            }
+        }
+    }
+
+    private void copyLCRSTree(LCRSTree<E> oldT, LCRSTree<E> newT, Position<E> nodeOld, Position<E> nodeNew){
+        if(newT.isEmpty()) {
+            newT.addRoot(nodeOld.getElement());
+        }
+        else{
+            for(Position<E> pos: oldT.children(nodeOld)){
+                Position<E> aux = newT.add(pos.getElement(), nodeNew);
+                copyLCRSTree(oldT, newT, pos, aux);
+            }
+        }
+    }
+
 }

@@ -1,10 +1,8 @@
-package examenes.ordinaria_2015_2016.solucion.ejercicio2;
+package examenes.ordinaria_2015_2016.solucion.ejercicio3;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-import structures.notOrderedMapsAndDictionaries.Entry;
 import structures.notOrderedMapsAndDictionaries.maps.HashTableMapLP;
 
 public class URJCInvest {

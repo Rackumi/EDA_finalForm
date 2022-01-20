@@ -76,7 +76,8 @@ public class GuessWho {
     that can be performed in the game
      */
     public int longestGame() {
-        return depthRec(game.root(), 0)-1;
+        return depthRec(game.root(), 0);
+//        return depthRec(game.root(), 0)-1;
     }
 
 

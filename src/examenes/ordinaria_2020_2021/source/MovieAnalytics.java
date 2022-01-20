@@ -1,4 +1,4 @@
-package examenes.ordinaria_2020_2021;
+package examenes.ordinaria_2020_2021.source;
 
 import structures.notOrderedMapsAndDictionaries.maps.HashTableMapDH;
 //import structures.OrderedMapsAndDictionaries.ordereddictionary.AVLOrderedDict;

@@ -1,4 +1,4 @@
-package examenes.ordinaria_2015_2016.ejercicio2;
+package examenes.ordinaria_2015_2016.solucion.ejercicio3;
 
 public class Employee {
 
@@ -6,6 +6,14 @@ public class Employee {
 	private String descripcion;
 	private String cargo;
 	private String empresa;
+
+	public Employee (String n, String d, String c, String e) {
+		this.nombre = n;
+		this.descripcion = d;
+		this.cargo = c;
+		this.empresa = e;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

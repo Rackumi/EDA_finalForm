@@ -9,15 +9,18 @@ import structures.notOrderedMapsAndDictionaries.maps.Map;
 /**
  * @author Rackumi
  */
+//El enunciado que tenemos es del examen de vicalvaro y el codigo es el del examen de mostoles, por eso difiere un poco el contenido
 public class ClassroomOrganiser {
 
-    Map<Integer, Integer> map; //entendemos la clave es el code de subjct y el aula seria el valor ya que se identifica por un numero
-    
+    Map<Integer, Integer> map; //entendemos la clave es el code de subject y el aula seria el valor ya que se identifica por un numero
+    Map<Integer, Subject> subjects;
+
     /**
      * Initializes the organiser
      */
     public ClassroomOrganiser(){
         map = new HashTableMapDH<>();
+        subjects = new HashTableMapDH<>();
     }
     
     /**
@@ -26,8 +29,10 @@ public class ClassroomOrganiser {
      */
     public ClassroomOrganiser(List<Pair<Subject, Integer>> lista) {
         map = new HashTableMapDH<>();
+        subjects = new HashTableMapDH<>();
         for(Pair<Subject, Integer> p : lista){
             map.put(p.getFirst().getCode(), p.getSecond());
+            subjects.put(p.getFirst().getCode(), p.getFirst());
         }
     }
 
@@ -36,10 +41,8 @@ public class ClassroomOrganiser {
      * @param
      * @return 
      */
-    public List<Integer> impartedSubject(Integer subject) {
-      
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
-        
+    public List<Integer> impartedSubject(Integer subject) { //enunciado alternativo con varias classrooms
+        return null;
     }
 
     /**
@@ -61,9 +64,7 @@ public class ClassroomOrganiser {
      * @param classrooms The list of classrooms
      * @return 
      */
-    public void newSubject(Subject subject, List<Integer> classrooms) {
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void newSubject(Subject subject, List<Integer> classrooms) { //enunciado alternativo con varias classrooms
     }
 
     /**
@@ -73,28 +74,23 @@ public class ClassroomOrganiser {
      * @return 
      */
     public void newSubject(Subject subject, Integer classroom) {
-
+        subjects.put(subject.getCode(), subject);
         Integer aux = map.put(subject.getCode(), classroom);
         if(aux!=null){
-            throw new RuntimeException("Error, la clase ya estaba siendo utilizada");
+            throw new RuntimeException("Error, la classroom ya estaba siendo utilizada");
         }
-
     }
 
     /**
      * Adds a new classroom to the subject's classrooms
-
      * @param classroom The classroom
      * @return 
      */
-    public void addClassroom(Subject subject, Integer classroom) {
-      
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
-        
+    public void addClassroom(Subject subject, Integer classroom) { //enunciado alternativo con varias classrooms
     }
 
     /**
-     * Change the classroom in witch the subject is imparted
+     * Change the classroom in which the subject is imparted
      * @param subject The subject
      * @param classroom The classroom
      * @return 
@@ -105,9 +101,6 @@ public class ClassroomOrganiser {
             throw new RuntimeException("error, la asignatura no existe");
         }
         map.put(subject.getCode(), classroom);
-        if(aux!=null){
-            map.remove(aux);
-        }
     }
 
     /**
@@ -118,9 +111,9 @@ public class ClassroomOrganiser {
      * @return 
      */
     public void changeSyllabus(Integer subject, String topic, Integer index) {
-      
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
-        
+        Subject s = subjects.get(subject);
+        String[] str = s.getSyllabus();
+        str[index] = topic;
     }
 
     /**
@@ -129,9 +122,7 @@ public class ClassroomOrganiser {
      * @return 
      */
     public void printSubject(Integer classroom) {
-      
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
-        
+        System.out.println(map.get(classroom));
     }
     
     /**
@@ -140,9 +131,7 @@ public class ClassroomOrganiser {
      * @return 
      */
     public boolean freeClassroom(Integer classroom) {
-      
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
-        
+        return map.get(classroom) == null;
     }
     
 }

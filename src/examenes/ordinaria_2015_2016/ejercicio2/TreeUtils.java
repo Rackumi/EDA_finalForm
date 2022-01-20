@@ -1,4 +1,4 @@
-package examenes.ordinaria_2015_2016.ejercicio1;
+package examenes.ordinaria_2015_2016.ejercicio2;
 
 import structures.tree.binarytree.BinaryTree;
 import structures.tree.binarytree.BinaryTreeUtils;
