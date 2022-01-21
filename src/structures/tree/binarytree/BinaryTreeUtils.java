@@ -1,16 +1,20 @@
 package structures.tree.binarytree;
 
+import practicas.practica2.Pair;
 import structures.Position;
+import structures.tree.binarySearchTree.DefaultComparator;
 import structures.tree.iterators.InOrderIterator;
 import structures.tree.iterators.PreOrderIterator;
 
-import java.util.Iterator;
+import java.util.*;
 
 public class BinaryTreeUtils<E> {
 	
 	private BinaryTree<E> tree;
 
-	public BinaryTreeUtils() {}
+	public BinaryTreeUtils(){
+
+	}
 
 	public BinaryTreeUtils(BinaryTree<E> tree) {
 		this.tree = tree;
@@ -264,6 +268,133 @@ public class BinaryTreeUtils<E> {
 		}
 
 		return (Math.abs(left - right) <= 1);
+	}
+
+	public boolean isBalanced(BinaryTree<E> tree) {
+		if(tree.isEmpty()){
+			return true;
+		}
+		boolean[] balanced = new boolean[1];
+		balanced[0] = true;
+		isBalancedAux(tree, tree.root(), balanced);
+		return balanced[0];
+	}
+
+	private int isBalancedAux(BinaryTree<E> tree, Position<E> node, boolean[] balanced) {
+		int left = 0;
+		int right = 0;
+		if(tree.hasLeft(node)){
+			left = isBalancedAux(tree, tree.left(node), balanced);
+		}
+		if(tree.hasRight(node)){
+			right = isBalancedAux(tree, tree.right(node), balanced);
+		}
+		if(Math.abs(left-right) > 1){
+			balanced[0] = false;
+		}
+		return Math.max(left, right)+1;
+	}
+
+	public Iterable<Integer> levelsComplete(BinaryTree<E> tree){
+		Set<Integer> l1 = new HashSet<>();//niveles completos
+		Set<Integer> l2 = new HashSet<>();//niveles incompletos
+		Deque<Pair<Position<E>, Integer>> q = new LinkedList<>();
+		q.addFirst(new Pair(tree.root(), 1)); // se ha considerado que la raiz es altura 1 para que cuadre con el enunciado
+
+		while(!q.isEmpty()){
+			Pair<Position<E>, Integer> node = q.removeLast();
+			for(Position<E> p: tree.children(node.getFirst())){
+				q.addFirst(new Pair(p,node.getSecond()+1));
+			}
+			if((tree.hasLeft(node.getFirst()) && tree.hasRight(node.getFirst())) || tree.isLeaf(node.getFirst())){
+				l1.add(node.getSecond());
+			}
+			else{
+				l2.add(node.getSecond());
+			}
+		}
+		for(Integer p: l2){
+			l1.remove(p);
+		}
+		return l1;
+	}
+
+	public Iterable<Integer> levelsIncomplete(BinaryTree<E> tree){
+		Set<Integer> l = new HashSet<>();
+		Deque<Pair<Position<E>, Integer>> q = new LinkedList<>();
+		q.addFirst(new Pair(tree.root(), 1)); // se ha considerado que la raiz es altura 1 para que cuadre con el enunciado
+
+		while(!q.isEmpty()){
+			Pair<Position<E>, Integer> node = q.removeLast();
+			for(Position<E> p: tree.children(node.getFirst())){
+				q.addFirst(new Pair(p,node.getSecond()+1));
+			}
+			if(!((tree.hasLeft(node.getFirst()) && tree.hasRight(node.getFirst())) || tree.isLeaf(node.getFirst()))){
+				l.add(node.getSecond());
+			}
+		}
+		return l;
+	}
+
+	/**
+	 * Receives a BinaryTree and returns true if the tree is a BinarySearchTree
+	 * iterative
+	 * @param tree
+	 * @return
+	 */
+	public boolean isBinarySearchTree(BinaryTree<E> tree){
+		boolean isBS = true;
+		Comparator<E> comparator = new DefaultComparator<>();
+
+		Iterator<Position<E>> it = tree.iterator();
+		while(it.hasNext()){
+			Position<E> node = it.next();
+			int comp = comparator.compare(tree.left(node).getElement(), node.getElement());
+			if(tree.hasLeft(node)){
+				if(comp > 0){
+					isBS = false;
+				}
+			}
+			if(tree.hasRight(node)){
+				if(comp < 0){
+					isBS = false;
+				}
+			}
+		}
+		return isBS;
+	}
+
+
+	/**
+	 * Receives a BinaryTree and returns true if the tree is a BinarySearchTree
+	 * recursive
+	 * @param tree
+	 * @return
+	 */
+	public boolean isBinarySearchTreeRec(BinaryTree<E> tree){
+		return isBinarySearchTreeRecAux(tree, tree.root(), true);
+	}
+
+	public boolean isBinarySearchTreeRecAux(BinaryTree<E> tree, Position<E> node, boolean cond){
+		Comparator<E> comparator = new DefaultComparator<>();
+		int comp = comparator.compare(tree.left(node).getElement(), node.getElement());
+		if(tree.hasLeft(node)){
+			if(comp < 0){
+				return isBinarySearchTreeRecAux(tree, tree.left(node), cond);
+			}
+			else{
+				return false;
+			}
+		}
+		if(tree.hasRight(node)){
+			if(comp > 0){
+				return isBinarySearchTreeRecAux(tree, tree.right(node), cond);
+			}
+			else{
+				return false;
+			}
+		}
+		return cond;
 	}
 
 }

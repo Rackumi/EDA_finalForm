@@ -269,11 +269,13 @@ public class LinkedTree<E> implements NAryTree<E> {
         origPadre.children.remove(nodeOrig);
     }
 
+    //Añadido examen EDA FEBRERO 2021
     public BinaryTree<E> convertToBinaryTree() {
         reorderTree();
         return transformToBinary();
     }
 
+    //Añadido examen EDA FEBRERO 2021
     private BinaryTree<E> transformToBinary() {
         BinaryTree<E> res = new LinkedBinaryTree<>();
         res.addRoot(this.root().getElement());
@@ -304,6 +306,7 @@ public class LinkedTree<E> implements NAryTree<E> {
         return res;
     }
 
+    //Añadido examen EDA FEBRERO 2021
     private void reorderTree() {
         Queue<Position<E>> queue = new ArrayDeque<>();
         queue.add(this.root());
@@ -328,7 +331,7 @@ public class LinkedTree<E> implements NAryTree<E> {
 
     }
 
-    //Añadido examen EDA FEBRERO 2021 Sergio
+    //Añadido examen EDA FEBRERO 2021
     public void removeParentEdge(Position<E> e) {
         TreeNode<E> node = checkPosition(e);
         TreeNode<E> parent = checkPosition(this.parent(e));
@@ -336,7 +339,7 @@ public class LinkedTree<E> implements NAryTree<E> {
         parent.removeChildren(node);
     }
 
-    //Añadido examen EDA FEBRERO 2021 Sergio
+    //Añadido examen EDA FEBRERO 2021
     public void addSibling(Position<E> e, Position<E> e1) {
         TreeNode<E> node1 = checkPosition(e);
         TreeNode<E> node2 = checkPosition(e1);

@@ -1,5 +1,5 @@
-ej1 teoria ->
-ej2 teoria ->
+ej1 teoria -> hojas arn ej 12
+ej2 teoria -> hojas tablas hash ej 2
 ej1 ->
 ej2 ->
 ej3 ->

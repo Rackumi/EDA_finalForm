@@ -1,0 +1,4 @@
+ej1.1 teoria -> Hecho en la hoja de avl ej 8
+ej1.2 teoria -> Hecho en hoja de tablas hash ej 3
+ej1 -> caso de uso host
+ej2 -> weighted linked tree

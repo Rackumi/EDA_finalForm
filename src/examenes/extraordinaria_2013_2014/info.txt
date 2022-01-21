@@ -1,0 +1,2 @@
+ej1 -> El arrayBinaryTree ya esta implementado en structures
+ej2 -> Es literalmente usar un grafo o un arbol nary y llamar a insertar, borrar, etc.

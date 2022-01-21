@@ -1,0 +1,6 @@
+En este examen no hay pdf por lo que se ha hecho lo que se ha podido intuyendo el enunciado.
+
+Ej1.1 -> Comprobar si un arbol es Balanceado (hecho en binarytreeultis)
+Ej1.2 -> Comprobar si un arbol es BST (hecho en binarytreeultis)
+Ej2 -> Convertir un arbol nary en un arbol binary (hecho en la implementacion de narytree LinkedTree)
+Ej3 -> Caso de uso Movies

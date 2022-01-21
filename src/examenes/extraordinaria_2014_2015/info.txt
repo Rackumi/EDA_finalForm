@@ -3,6 +3,5 @@ ej1b -> El clustering primario es la acumulacion de elementos secuencialmente en
         El clustering secundario es la acumulacion de series de elementos una tabla hash, se produce con la prueba cuadratica al tratar de eliminar el clustering primario.
         La solucion es usar doble hash o encadenamiento separado en vez de direccionamiento abierto.
 ej1c -> Ej hecho en otro examen, hoja de ejercicios arbol B ej4
-ej2a
-ej2b
-ej2c
+ej2 -> Ya hay una implementacion de single chained map en structures
+ej3 -> Ejercicio de mierda

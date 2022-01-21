@@ -36,6 +36,7 @@ class NAryTreeToBinaryTreeTest {
                                                             \
                                                              11
     */
+
     private NAryTree<Integer> tree;
     private Position<Integer> p[];
 
@@ -112,4 +113,5 @@ class NAryTreeToBinaryTreeTest {
         }
         assertEquals(expected, stb.toString());
     }
+
 }

@@ -1,7 +1,5 @@
 package examenes.ordinaria_2012_2013;
 
-
-import structures.notOrderedMapsAndDictionaries.Entry;
 import structures.notOrderedMapsAndDictionaries.maps.HashTableMapDH;
 import structures.notOrderedMapsAndDictionaries.maps.Map;
 
@@ -13,6 +11,8 @@ public class CentroControl {
 	Set<Multa> multas = new HashSet<>();
 	Map<String, Float> conductores = new HashTableMapDH<>();
 	Map<Integer, Integer> radares = new HashTableMapDH<>();
+	Integer radarMasValioso = null;
+	int maxRadar = 0;
 
 	public void storeMultas(Multa multa){
 		multas.add(multa);
@@ -39,6 +39,13 @@ public class CentroControl {
 			radares.put(radar, 1+importeRadar);
 		}
 
+		//con eso nos ahorramos la complejidad O(n) de getRadarMasValioso al tener que iterar el mapa radares
+		importeRadar = radares.get(radar); //actualizamos el valor
+		if(importeRadar > maxRadar){
+			maxRadar = importeRadar;
+			radarMasValioso = radar;
+		}
+
 	}
 
 	public float getCuantia (String matricula) {
@@ -46,15 +53,15 @@ public class CentroControl {
 	}
 
 	public int getRadarMasValioso () {
-		int max = 0;
-		int radarValioso = 0;
-		for(Entry<Integer, Integer> ent: radares.entries()){
-			if(ent.getValue() > max){
-				max = ent.getValue();
-				radarValioso = ent.getKey();
-			}
-		}
-		return radarValioso;
+//		int max = 0;
+//		int radarValioso = 0;
+//		for(Entry<Integer, Integer> ent: radares.entries()){
+//			if(ent.getValue() > max){
+//				max = ent.getValue();
+//				radarValioso = ent.getKey();
+//			}
+//		}
+		return this.radarMasValioso;
 	}
 
 }
