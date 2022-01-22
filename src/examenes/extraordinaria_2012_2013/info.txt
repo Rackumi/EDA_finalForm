@@ -1,5 +1,5 @@
 ej1.1 -> Hoja de ejercicios arboles rojonegro ej9
-ej1.2 ->
-ej2 ->
-ej3 ->
-ej4 ->
+ej1.2 -> Hoja de ejercicios arboles B ej8
+ej2 -> diccionarios
+ej3 -> mapas
+ej4 -> hecho en linkedBinarySearchTree

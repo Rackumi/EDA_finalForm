@@ -1,2 +1,2 @@
 ej1 -> caso de uso Canal
-ej2 -> weighted binary linked tree
+ej2 -> weighted binary linked tree (identico al del A pero con la interfaz de binarios)

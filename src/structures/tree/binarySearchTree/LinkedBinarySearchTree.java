@@ -3,8 +3,10 @@ package structures.tree.binarySearchTree;
 import java.util.*;
 
 import structures.Position;
+import structures.tree.Tree;
 import structures.tree.binarytree.LinkedBinaryTree;
 import structures.tree.iterators.InOrderIterator;
+import structures.tree.narytree.LinkedTree;
 
 /**
  * Realization of a dictionary by means of a binary search tree.
@@ -355,6 +357,54 @@ public class LinkedBinarySearchTree<E> implements BinarySearchTree<E> {
         this.binTree.remove(p);
         this.binTree.remove(u);
 
+    }
+
+    public BinarySearchTree<E> fusion(BinarySearchTree<E> abb1, BinarySearchTree<E> abb2){
+        BinarySearchTree<E> abb3 = new LinkedBinarySearchTree<>();
+        Iterator<Position<E>> it1 = abb1.iterator(); //inorder iterator
+        while(it1.hasNext()){
+            Position<E> pos = it1.next();
+            abb3.insert(pos.getElement());
+        }
+        Iterator<Position<E>> it2 = abb2.iterator(); //inorder iterator
+        while(it2.hasNext()){
+            Position<E> pos = it2.next();
+            abb3.insert(pos.getElement());
+        }
+        return abb3;
+    }
+
+    public Position<E> mediana(BinarySearchTree<E> abb){
+        int mediana = this.size()/2;
+        Iterator<Position<E>> it = abb.iterator(); //inorder iterator
+        int cont = 0;
+        while(it.hasNext()){
+            Position<E> pos = it.next();
+            if(cont >= mediana){
+                return pos;
+            }
+            cont++;
+        }
+        return null;
+    }
+
+    public LinkedBinaryTree<E> toLinkedTree(){
+        LinkedBinaryTree<E> t = new LinkedBinaryTree<>();
+        if(!this.isEmpty()){
+            Position<E> rootNew = t.addRoot(this.binTree.root().getElement());
+//            toLinkedTreeAuxRec();
+        }
+        return t;
+    }
+
+    public void removeRange(E minValue, E maxValue){
+        List<Position<E>> l = new LinkedList<>();
+        for(Position<E> pos: this.findRange(minValue, maxValue)){
+            l.add(pos);
+        }
+        for(Position<E> pos: l){ //no borrar mientras recorres
+            this.remove(pos);
+        }
     }
 
 }

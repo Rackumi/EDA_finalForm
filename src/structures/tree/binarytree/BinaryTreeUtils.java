@@ -346,20 +346,18 @@ public class BinaryTreeUtils<E> {
 		boolean isBS = true;
 		Comparator<E> comparator = new DefaultComparator<>();
 
-		Iterator<Position<E>> it = tree.iterator();
+		Iterator<Position<E>> it = tree.iterator(); //inorder
+		Position<E> anterior = null;
+		Position<E> actual = it.next();
 		while(it.hasNext()){
-			Position<E> node = it.next();
-			int comp = comparator.compare(tree.left(node).getElement(), node.getElement());
-			if(tree.hasLeft(node)){
-				if(comp > 0){
+			if(anterior != null){
+				int comp = comparator.compare(anterior.getElement(), actual.getElement());
+				if(comp > 0) {
 					isBS = false;
 				}
 			}
-			if(tree.hasRight(node)){
-				if(comp < 0){
-					isBS = false;
-				}
-			}
+			anterior = actual;
+			actual = it.next();
 		}
 		return isBS;
 	}
@@ -371,6 +369,7 @@ public class BinaryTreeUtils<E> {
 	 * @param tree
 	 * @return
 	 */
+	//ni idea de hacerlo recursivo la vd x)
 	public boolean isBinarySearchTreeRec(BinaryTree<E> tree){
 		return isBinarySearchTreeRecAux(tree, tree.root(), true);
 	}

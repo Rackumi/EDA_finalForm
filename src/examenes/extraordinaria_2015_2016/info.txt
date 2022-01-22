@@ -2,7 +2,7 @@ ej1.1 -> Hoja de arn ej 13
 ej1.2 -> encadenamiento separado tendrian que ser 67 entradas y en direccionamiento abierto tendrian que ser 100 entradas
          esto se debe a que el factor de carga de encadenamiento separado es 0.75 y el de direccionamiento abierto es 0.5
 ej1.3 -> 4 + 4*5 + 5 * 4*5 = 124 (siendo raiz altura 1)
-ej2.1 ->
-ej2.2 ->
-ej2.3 ->
-ej3 ->
+ej2.1 -> implementado en LinkedBinarySearchTree
+ej2.2 -> implementado en LinkedBinarySearchTree
+ej2.3 -> en la clase Student
+ej3 -> caso de uso ElectoralCollege

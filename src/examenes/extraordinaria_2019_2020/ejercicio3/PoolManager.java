@@ -33,7 +33,6 @@ public class PoolManager {
 
     public Iterable<String> objectsInPool(int start, int end) {
         List<String> l = new LinkedList<>();
-//        List<String> neighbors = (List<String>) neighborsBetween(start, end); // esto se haria asi? borrar despues de preguntarlo
         for(String neig: neighborsBetween(start, end)) {
             for(String obj: (getObjects(neig))){
                 l.add(obj);

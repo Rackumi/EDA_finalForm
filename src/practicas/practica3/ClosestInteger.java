@@ -21,6 +21,7 @@ public class ClosestInteger {
      * @param i
      * @return
      */
+    //habria que tener en cuenta el nodo raiz ya que este puede estar mas cerca de i ke el hoja ke encuentres
     public Position<Integer> closest(LinkedBinarySearchTree<Integer> tree, int i){
         if(tree.isEmpty()){
             throw new RuntimeException("The tree is null or empty");

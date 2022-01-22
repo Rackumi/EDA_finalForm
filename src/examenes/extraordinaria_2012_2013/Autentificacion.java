@@ -5,6 +5,7 @@ import structures.notOrderedMapsAndDictionaries.maps.HashTableMapDH;
 import structures.notOrderedMapsAndDictionaries.maps.Map;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Autentificacion {
 
@@ -25,6 +26,7 @@ public class Autentificacion {
     }
 
     public static void main(String[] srgs){
+
         bd = new HashTableMapDH<>();
         bd.put("A","1");
         bd.put("B","2");
@@ -39,25 +41,33 @@ public class Autentificacion {
         bd.put("K","11");
         impresion(bd);
 
-        if(login("A","7")){
-            System.out.println("si");
-        }
-        else{
-            System.out.println("no");
+        Scanner sc = new Scanner(System.in);
+
+        int cont = 0;
+        boolean cond = true;
+        boolean cond2 = false;
+
+        while(cont < 3 && cond) {
+            System.out.print("Introduzca el nombre de usuario: ");
+            String nom = sc.nextLine();
+            System.out.print("Introduzca la contraseña: ");
+            String contr = sc.nextLine();
+            System.out.println();
+
+            if(login(nom, contr)){
+                System.out.println("Entraste al sistema");
+                cond = false;
+            }
+            else{
+                System.out.println("El nombre de usuario y la contraseña no concuerdan");
+                cond2 = true;
+            }
+
+            cont++;
         }
 
-        if(login("B","1")){
-            System.out.println("si");
-        }
-        else{
-            System.out.println("no");
-        }
-
-        if(login("C","3")){
-            System.out.println("si");
-        }
-        else{
-            System.out.println("no");
+        if(cond2){
+            System.out.println("No entraste al sistema");
         }
 
     }
