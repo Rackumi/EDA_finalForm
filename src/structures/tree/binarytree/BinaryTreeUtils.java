@@ -51,7 +51,7 @@ public class BinaryTreeUtils<E> {
 	}
 	
 	/**
-	* Determines the level of a node in the tree
+	* Determines the level of the tree
 	*/
 	public int level(Position<E> n) {
 		int left= 0;
@@ -93,10 +93,10 @@ public class BinaryTreeUtils<E> {
 	private int calcularNodos2 (BinaryTree<E> t, Position<E> p) {
 		int cont = 1;
 		if(t.hasLeft(p)){
-			cont = cont + calcularNodos2(t, t.left(p));
+			cont += calcularNodos2(t, t.left(p));
 		}
 		if(t.hasRight(p)){
-			cont = cont + calcularNodos2(t, t.right(p));
+			cont += calcularNodos2(t, t.right(p));
 		}
 		return cont;
 	}

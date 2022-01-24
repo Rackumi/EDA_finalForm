@@ -2,6 +2,7 @@ package structures.graphs.graphAlgorithms;
 
 import java.util.*;
 
+import com.sun.source.doctree.SeeTree;
 import practicas.practica2.Pair;
 import structures.Position;
 import structures.graphs.Edge;
@@ -49,59 +50,26 @@ public class Recorridos<V, E> {
      * @param graph
      * @param source
      * @return
-     */
+    */
     public List<Vertex<V>> depthTravel(Graph<V,E> graph, Vertex<V> source){
         Deque<Vertex<V>> s = new LinkedList<>();
-        Set<Vertex<V>> conj = new HashSet<>();
+        Set<Vertex<V>> visited = new HashSet<>();
         List<Vertex<V>> l = new LinkedList<>();
 
         s.push(source);
         while(!s.isEmpty()){
             Vertex<V> pos = s.pop();
-            if(!conj.contains(pos)){
-                conj.add(pos);
+            if(!visited.contains(pos)) {
+                visited.add(pos);
                 l.add(pos);
-                for(Edge<E> e: graph.incidentEdges(pos)){
-                    Vertex<V> vertex = graph.opposite(pos, e);
+            }
+            for(Edge<E> e: graph.incidentEdges(pos)){
+                Vertex<V> vertex = graph.opposite(pos, e);
+                if(!visited.contains(vertex)) {
                     s.push(vertex);
                 }
             }
         }
-
-        return l;
-    }
-
-    /**
-     * Devuelve el árbol que se genera al realizar el recorrido en profundidad
-     * 
-     * @param graph
-     * @param source
-     * @return 
-     */
-    public List<Vertex<V>> depthTravel2(Graph<V,E> graph, Vertex<V> source){ //profundidad
-        Deque<Vertex<V>> s = new LinkedList<>();
-        Set<Vertex<V>> conj = new HashSet<>();
-        List<Vertex<V>> l = new LinkedList<>();
-
-        s.push(source);
-        Vertex<V> parent = source;
-        while(!s.isEmpty()){
-            Vertex<V> pos = s.pop();
-            if(!conj.contains(pos)){
-                conj.add(pos);
-                l.add(pos);
-            }
-            Set<Vertex<V>> auxAdyacentVertex = adyacentVertex(graph, pos);
-            auxAdyacentVertex.remove(parent);
-            for(Vertex<V> aux: auxAdyacentVertex){
-                s.push(aux);
-            }
-            parent = pos;
-            if(l.size()==graph.vertices().size()){
-                return l;
-            }
-        }
-
         return l;
     }
 
@@ -114,49 +82,23 @@ public class Recorridos<V, E> {
      */
     public List<Vertex<V>> widthTravel(Graph<V,E> graph, Vertex<V> source){
         Deque<Vertex<V>> q = new LinkedList<>();
-        Set<Vertex<V>> conj = new HashSet<>();
+        Set<Vertex<V>> visited = new HashSet<>();
         List<Vertex<V>> l = new LinkedList<>();
 
         q.addFirst(source);
         while(!q.isEmpty()){
             Vertex<V> pos = q.removeLast();
-            if(!conj.contains(pos)){
-                conj.add(pos);
+            if(!visited.contains(pos)) {
+                visited.add(pos);
                 l.add(pos);
-                for(Edge<E> e: graph.incidentEdges(pos)){
-                    Vertex<V> vertex = graph.opposite(pos, e);
+            }
+            for(Edge<E> e: graph.incidentEdges(pos)){
+                Vertex<V> vertex = graph.opposite(pos, e);
+                if(!visited.contains(vertex)) {
                     q.addFirst(vertex);
                 }
             }
         }
-
-        return l;
-    }
-
-    public List<Vertex<V>> widthTravel2(Graph<V,E> graph, Vertex<V> source){
-        Deque<Vertex<V>> s = new LinkedList<>();
-        Set<Vertex<V>> conj = new HashSet<>();
-        List<Vertex<V>> l = new LinkedList<>();
-
-        s.addFirst(source);
-        Vertex<V> parent = source;
-        while(!s.isEmpty()){
-            Vertex<V> pos = s.removeLast();
-            if(!conj.contains(pos)){
-                conj.add(pos);
-                l.add(pos);
-            }
-            Set<Vertex<V>> auxAdyacentVertex = adyacentVertex(graph, pos);
-            auxAdyacentVertex.remove(parent);
-            for(Vertex<V> aux: auxAdyacentVertex){
-                s.addFirst(aux);
-            }
-            parent = pos;
-            if(l.size()==graph.vertices().size()){
-                return l;
-            }
-        }
-
         return l;
     }
 
@@ -401,6 +343,69 @@ public class Recorridos<V, E> {
             }
         }
         return g;
+    }
+
+//	function Kruskal(graph)
+//	Initialice a priority queue Q with all edges using weights as keys
+//	foreach v : graph.vertices()
+//			conjuntos.createconjunto(v)
+//	tree = ∅
+//			while tree.size() < (graph.vertices().size() - 1)
+//			(u,v) = Q.removeMin()
+//			if conjuntos.getconjunto(u) ≠ conjuntos.getconjunto(v)
+//			tree.add(u, v)
+//			conjuntos.joinconjuntos(u, v)
+//			return tree
+
+    public List<Edge<E>> getKruskal(Graph<V,E> g){
+        PriorityQueue<Pair<Edge<E>,Integer>> priorityQueue = new PriorityQueue<>(new KruskalComparator<>());
+        List<Set<Vertex<V>>> conj = new LinkedList<>();
+        List<Edge<E>> l = new LinkedList<>();
+
+        for (Edge<E> e: g.edges()){
+            priorityQueue.add(new Pair<>(e, (Integer)e.getElement()));
+        }
+
+        for(Vertex<V> v: g.vertices()){
+            Set<Vertex<V>> s = new HashSet<>();
+            s.add(v);
+            conj.add(s);
+        }
+
+        while(l.size() != g.vertices().size()-1){
+
+            Edge<E> first = priorityQueue.poll().getFirst();
+            Vertex<V> v1 = g.endVertices(first).get(0);
+            Vertex<V> v2 = g.endVertices(first).get(1);
+            Set<Vertex<V>> s1 = new HashSet<>();
+            Set<Vertex<V>> s2 = new HashSet<>();
+
+            for (Set<Vertex<V>> s : conj){
+                if (s.contains(v1)){
+                    s1 = s;
+                }
+                if (s.contains(v2)){
+                    s2 = s;
+                }
+            }
+            if (s1 != s2){
+                l.add(first);
+                s1.addAll(s2);
+                conj.remove(s2);
+            }
+        }
+        return l;
+    }
+
+    private class KruskalComparator<E> implements Comparator<E>{
+        @Override
+        public int compare(E o1, E o2) {
+            Pair<Integer, Integer> p1 = (Pair<Integer, Integer>)o1;
+            Pair<Integer, Integer> p2 = (Pair<Integer, Integer>)o2;
+            int key1 = p1.getSecond();
+            int key2 = p2.getSecond();
+            return key1 - key2;
+        }
     }
 
 }

@@ -53,7 +53,7 @@ public class NAryTreeUtils<E> {
 
         Deque<Pair<Position<E>, Integer>> q = new LinkedList<>();
         List<E> l = new LinkedList<>();
-        boolean[] lvl = new boolean[100]; //esto estaria mal?
+        boolean[] lvl = new boolean[100];
 
         Position<E> node = tree.root();
         Pair<Position<E>, Integer> nodePair = new Pair<>(node, 0);
@@ -86,7 +86,7 @@ public class NAryTreeUtils<E> {
 
         Deque<Pair<Position<E>, Integer>> q = new LinkedList<>();
         List<E> l = new LinkedList<>();
-        boolean[] lvl = new boolean[100]; //esto estaria mal?
+        boolean[] lvl = new boolean[100];
 
         Position<E> node = tree.root();
         Pair<Position<E>, Integer> nodePair = new Pair<>(node, 0);
