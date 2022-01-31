@@ -1,0 +1,12 @@
+Ejercicio 1: QuickTree [2]: 2
+- Search e inserciones [1.25]: 1.25
+- Remove [0.75]: 0.75
+
+Ejercicio 2: URJCFlights [5]: 3.5
+- Estructuras, Airport y Flight [0.5]: 0.5
+- newAirport [0.25]: 0.25
+- newConnection [0.75]: 0.75
+- newFlight [0.5]: 0.25 - Añades el vuelo 2 veces, usas getDeparture cuando es getArrival
+- availableAirportsConnection [0.5]: 0.5
+- availableFlights [0.25]: 0.25
+- searchItinerary [2.25]: 1.0 - La comprobación de si hay vuelos válidos no es correcta. Si no hay vuelos válido no devuelves null.
